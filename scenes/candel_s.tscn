@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/Objects/candel_on_s.png" type="Texture" id=1]
 [ext_resource path="res://resources/Objects/candel_s.png" type="Texture" id=2]
@@ -21,6 +21,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=6]
+radius = 23.0
+
 [node name="Candel_S" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -33,3 +36,8 @@ enabled = false
 texture = ExtResource( 3 )
 texture_scale = 0.15
 energy = 0.75
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 6 )
