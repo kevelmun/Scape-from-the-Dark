@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/candel_on_s.png-468cd58a63b43d4d7f492768c9beb263.stex"
+path="res://.import/round_light.png-4438ab69335a33be83783dad9d01f7d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Objects/candel_on_s.png"
-dest_files=[ "res://.import/candel_on_s.png-468cd58a63b43d4d7f492768c9beb263.stex" ]
+source_file="res://resources/Objects/Lights/round_light.png"
+dest_files=[ "res://.import/round_light.png-4438ab69335a33be83783dad9d01f7d9.stex" ]
 
 [params]
 
