@@ -34,7 +34,7 @@ position = Vector2( 1.99999, 989.5 )
 scale = Vector2( 1, 2.029 )
 texture = ExtResource( 3 )
 
-[node name="blinkTimer" type="Timer" parent="."]
+[node name="flickerTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
@@ -44,5 +44,4 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="blinkTimer" to="." method="_on_blinkTimer_timeout"]
-[connection signal="timeout" from="lightTimeout" to="." method="_on_lightTimeout_timeout"]
+[connection signal="timeout" from="flickerTimer" to="." method="_on_blinkTimer_timeout"]

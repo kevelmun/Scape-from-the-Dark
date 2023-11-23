@@ -3,7 +3,7 @@ extends Node2D
 onready var light = $Light2D
 onready var sprite = $AnimatedSprite
 
-onready var blink = $blinkTimer
+onready var flicker = $flickerTimer
 onready var timeout = $lightTimeout
 
 # Acciones al cargar la escena
@@ -20,21 +20,19 @@ func off_light_bulb():
 	sprite.frame = 0
 	light.enabled = false
 
-# Apaga el bombillo definitivamente cuando el tiempo de vida de este termina
-func _on_lightTimeout_timeout():
-	off_light_bulb()
-	
-	# Detenemos el temporizador de parpadeo
-	blink.stop()
-	print("Se apaga")
 
 # Realiza un parpadeo de la luz del bombillo 2 veces despues de x seg.
 func _on_blinkTimer_timeout():
-	for n in 2:
-		off_light_bulb()
-		yield(get_tree().create_timer(0.5), "timeout") # Detiene este codigo por 0.5 segundos
-		on_light_bulb()
-		print("parpadeo")
+	# Generamos un tiempo aleator. entre 10 a 15 seg.
+	var rnd_time = 10 + randi() % 6
 	
-	# Al finalizar, reinicia el temporizador de parpadeo
-	blink.start() 
+	for n in 5:
+		if n % 2 == 0:
+			off_light_bulb()
+		else:
+			on_light_bulb()
+		yield(get_tree().create_timer(0.2), "timeout") # Detiene este codigo por 0.2 segundos
+	
+	# Al finalizar, reinicia el temporizador de parpadeo con x seg.
+	print(rnd_time)
+	flicker.start(rnd_time)

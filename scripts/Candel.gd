@@ -2,7 +2,7 @@ extends Node2D
 
 var on = false
 
-onready var light_candel = $Light2D
+onready var lightCandel = $Light2D
 onready var sprite = $AnimatedSprite
 
 func _ready():
@@ -10,16 +10,19 @@ func _ready():
 	# Solo se lo usa para pruebas
 	light_candel()
 
+# Encender vela
 func light_candel():
 	on = true
-	light_candel.enabled = true
+	lightCandel.enabled = true
 	sprite.frame = 1
 
+# Apagar vela
 func extinguish_candel():
 	on = false
-	light_candel.enabled = false
+	lightCandel.enabled = false
 	sprite.frame = 0
 
+# Cambiar el estado de la vela entre prendido y apagado
 func switch_candel():
 	if !on:
 		light_candel()
