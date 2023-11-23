@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/Objects/bulb.png" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/bulb_on.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Lights/lamp_light.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Bulb.gd" type="Script" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Bulb" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+frame = 1
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 1.99999, 989.5 )
+scale = Vector2( 1, 2.029 )
+texture = ExtResource( 3 )
+
+[node name="blinkTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="lightTimeout" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="blinkTimer" to="." method="_on_blinkTimer_timeout"]
+[connection signal="timeout" from="lightTimeout" to="." method="_on_lightTimeout_timeout"]
