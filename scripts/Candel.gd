@@ -17,12 +17,14 @@ func light_candel():
 	on = true
 	lightCandel.enabled = true
 	sprite.frame = 1
+	add_to_group("CandlesOn")
 
 # Apagar vela
 func extinguish_candel():
 	on = false
 	lightCandel.enabled = false
 	sprite.frame = 0
+	remove_from_group("CandlesOn")
 
 # Cambiar el estado de la vela entre prendido y apagado
 func switch_candel():
