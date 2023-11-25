@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/character/spritesheet (1).png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player/Movement.gd" type="Script" id=2]
@@ -138,6 +138,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 20 )
 
+[sub_resource type="CircleShape2D" id=10]
+radius = 25.02
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
@@ -171,4 +174,12 @@ scale = Vector2( 0.11377, 0.11377 )
 enabled = false
 texture = ExtResource( 4 )
 
+[node name="CandelsDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CandelsDetector"]
+position = Vector2( 0, -10 )
+shape = SubResource( 10 )
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="CandelsDetector" to="." method="_on_CandelsDetector_area_entered"]
+[connection signal="area_exited" from="CandelsDetector" to="." method="_on_CandelsDetector_area_exited"]

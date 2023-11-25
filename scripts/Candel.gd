@@ -1,6 +1,7 @@
 extends Node2D
 
 var on = false
+var near_player = false
 
 onready var lightCandel = $Light2D
 onready var sprite = $AnimatedSprite
@@ -8,7 +9,8 @@ onready var sprite = $AnimatedSprite
 func _ready():
 	# TODO reemplazar este llamado de func. por extinguish_candel
 	# Solo se lo usa para pruebas
-	light_candel()
+#	light_candel()
+	extinguish_candel()
 
 # Encender vela
 func light_candel():

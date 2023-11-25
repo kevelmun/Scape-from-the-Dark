@@ -6,12 +6,10 @@
 [ext_resource path="res://scripts/Candel.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 50, 50 )
 
@@ -24,7 +22,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 23.0
+radius = 31.0
 
 [node name="Candel" type="Node2D"]
 script = ExtResource( 4 )
@@ -38,7 +36,11 @@ enabled = false
 texture = ExtResource( 3 )
 texture_scale = 0.25
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CandelArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CandelArea"]
+position = Vector2( 0, -10 )
 shape = SubResource( 6 )
+
+[connection signal="body_entered" from="CandelArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="CandelArea" to="." method="_on_Area2D_body_exited"]
