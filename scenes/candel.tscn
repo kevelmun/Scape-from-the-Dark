@@ -41,6 +41,3 @@ texture_scale = 0.25
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CandelArea"]
 position = Vector2( 0, -10 )
 shape = SubResource( 6 )
-
-[connection signal="body_entered" from="CandelArea" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="CandelArea" to="." method="_on_Area2D_body_exited"]

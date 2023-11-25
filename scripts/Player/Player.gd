@@ -96,7 +96,7 @@ func _on_CandelsDetector_area_entered(area):
 
 func _on_CandelsDetector_area_exited(area):
 	# Si nos salimos del area de la vela, borramos el nodo de la misma
-	_all_interactions.erase(0)
+	_all_interactions.erase(area.get_parent())
 	print("Borrando Vela")
 
 
