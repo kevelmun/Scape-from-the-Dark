@@ -25,7 +25,7 @@ func _process(delta):
 			
 			# Mueve la brisa hacia la vela seleccionada
 			move_wind_to_target(target)
-			set_next_blow_time()
+		set_next_blow_time()
 
 # Función para apagar una vela
 func _blow_a_candle():
