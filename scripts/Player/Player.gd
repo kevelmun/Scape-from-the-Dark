@@ -10,6 +10,8 @@ var velocidad = Vector2()
 # Estado del del fuego
 var fire_on = false
 
+# Lista para almacenar las velas cercanas
+var _all_interactions = []
 
 
 
@@ -60,6 +62,7 @@ func _physics_process(delta):
 		if not fire_on:
 			animacion.play("Fire_Start")
 			fire_on = true
+#		_light_candel()
 	elif not Input.is_action_pressed("ui_accept"):
 		fire_on = false
 		light2d.enabled = false
@@ -74,11 +77,32 @@ func _physics_process(delta):
 	velocidad = move_and_slide(velocidad, Vector2.UP)
 
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Fire_Start" and fire_on:
 		light2d.enabled = true
 		animacion.play("Fire")
+		
+		# Una vez que se acabe la animacion se ejecuta esta funcion
+		_light_candel()
+
+
+func _on_CandelsDetector_area_entered(area):
+	var curr_node = area.get_parent()
 	
+	# Detectamos si hay una vela cercana
+	if "Candel" in curr_node.get_name():
+		_all_interactions.insert(0, curr_node)
+		print("Vela")
+
+func _on_CandelsDetector_area_exited(area):
+	# Si nos salimos del area de la vela, borramos el nodo de la misma
+	_all_interactions.erase(0)
+	print("Borrando Vela")
 
 
+# Enciende la vela mas cercana si es que la hay
+func _light_candel():
+	if _all_interactions.size() > 0:
+		var curr_interaction = _all_interactions[0]
+		if curr_interaction:
+			curr_interaction.light_candel()
