@@ -37,6 +37,7 @@ func _blow_a_candle():
 # Establece el tiempo para apagar la siguiente vela
 func set_next_blow_time():
 	candels_list = get_tree().get_nodes_in_group("CandlesOn")
+	print(candels_list)
 	time_to_blow = rand_range(min_time, max_time)
 
 # Mueve la brisa hacia la posición de la vela
