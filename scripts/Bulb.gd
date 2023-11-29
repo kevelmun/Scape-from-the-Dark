@@ -8,7 +8,7 @@ onready var timeout = $lightTimeout
 
 # Acciones al cargar la escena
 func _ready():
-	on_light_bulb()
+	_random_bulb_state()
 
 # Enciende el bombillo
 func on_light_bulb():
@@ -36,3 +36,10 @@ func _on_blinkTimer_timeout():
 	# Al finalizar, reinicia el temporizador de parpadeo con x seg.
 	print(rnd_time)
 	flicker.start(rnd_time)
+	
+	_random_bulb_state()
+
+# De manera aleatoria cambiamos el estado de la bombilla
+func _random_bulb_state():
+	if randf() >= 0.5: on_light_bulb()
+	else: off_light_bulb()
