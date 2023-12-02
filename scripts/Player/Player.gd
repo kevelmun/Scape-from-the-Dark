@@ -62,6 +62,7 @@ func _physics_process(delta):
 		if not fire_on:
 			animacion.play("Fire_Start")
 			fire_on = true
+			
 	elif not Input.is_action_pressed("ui_accept"):
 		fire_on = false
 		light2d.enabled = false
@@ -104,5 +105,5 @@ func _light_candel():
 	if _all_interactions.size() > 0:
 		var curr_interaction = _all_interactions[0]
 		if curr_interaction:
-			curr_interaction.light_candel()
+			curr_interaction.light_candel()			
 			print("Combustible: ", curr_interaction.fuel_consumption)
