@@ -5,15 +5,16 @@ const VELOCIDAD = 200
 const FUERZA_SALTO = -500
 const GRAVEDAD = 1200
 
+# Estadisticas del jugador
+var fuel = 100
+
 # Definir la velocidad inicial
 var velocidad = Vector2()
 # Estado del del fuego
 var fire_on = false
 
-# Lista para almacenar las velas cercanas
+# Lista para almacenar las interacciones cercanas
 var _all_interactions = []
-
-
 
 # Obtener referencias a los nodos
 onready var animacion = $AnimationPlayer
@@ -92,18 +93,16 @@ func _on_CandelsDetector_area_entered(area):
 	# Detectamos si hay una vela cercana
 	if "Candel" in curr_node.get_name():
 		_all_interactions.insert(0, curr_node)
-		print("Vela")
 
 func _on_CandelsDetector_area_exited(area):
 	# Si nos salimos del area de la vela, borramos el nodo de la misma
 	_all_interactions.erase(area.get_parent())
-	print("Borrando Vela")
 
 
 # Enciende la vela mas cercana si es que la hay
 func _light_candel():
 	if _all_interactions.size() > 0:
 		var curr_interaction = _all_interactions[0]
-		if curr_interaction:
-			curr_interaction.light_candel()			
+		if curr_interaction && ! curr_interaction.on:
+			curr_interaction.light_candel()
 			print("Combustible: ", curr_interaction.fuel_consumption)
