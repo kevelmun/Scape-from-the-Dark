@@ -6,17 +6,23 @@ const FUERZA_SALTO = -500
 const GRAVEDAD = 1200
 
 # Estadisticas del jugador
-var fuel = 100
-
+var fuel = 50
 # Definir la velocidad inicial
 var velocidad = Vector2()
 # Estado del del fuego
 var fire_on = false
-
 # Lista para almacenar las interacciones cercanas
 var _all_interactions = []
 
-# Obtener referencias a los nodos
+## Señales
+
+# Indica que el jugador ha perdido (value) puntos de combutible
+signal player_fuel_lose(value)
+# Indica que el jugador ha perdido todo su combutible
+signal player_lose_all_fuel()
+
+## Obtener referencias a los nodos
+
 onready var animacion = $AnimationPlayer
 onready var sprite = $Sprite
 onready var light2d = $Light2D
@@ -62,8 +68,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		if not fire_on:
 			animacion.play("Fire_Start")
-			fire_on = true
-			
+			fire_on = true			
 	elif not Input.is_action_pressed("ui_accept"):
 		fire_on = false
 		light2d.enabled = false
@@ -82,9 +87,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Fire_Start" and fire_on:
 		light2d.enabled = true
 		animacion.play("Fire")
-		
-		# Una vez que se acabe la animacion se ejecuta esta funcion
+		# Verificamos si hay velas para encender
 		_light_candel()
+		# Notificamos que hemos perdido combustible
+		_lose_fuel()
 
 
 func _on_CandelsDetector_area_entered(area):
@@ -105,4 +111,12 @@ func _light_candel():
 		var curr_interaction = _all_interactions[0]
 		if curr_interaction && ! curr_interaction.on:
 			curr_interaction.light_candel()
-			print("Combustible: ", curr_interaction.fuel_consumption)
+
+# Maneja la perdida de combustible del jugador
+func _lose_fuel():
+	fuel -= GameStatistics.FUEL_CONSUME_VALUE
+	emit_signal("player_fuel_lose", GameStatistics.FUEL_CONSUME_VALUE)
+	
+	# Si ya no hay combustible envia una señal que el jug. perdió
+	if fuel <= 0:
+		emit_signal("player_lose_all_fuel")

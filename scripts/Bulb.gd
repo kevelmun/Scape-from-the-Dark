@@ -23,7 +23,7 @@ func off_light_bulb():
 # Realiza un parpadeo de la luz del bombillo 4 veces despues de x seg.
 func _on_blinkTimer_timeout():
 	# Generamos un tiempo aleator. entre 10 a 15 seg.
-	var rnd_time = 10 + randi() % 6
+	var rnd_time = randi() % 11
 	
 	for n in 5:
 		if n % 2 == 0:
@@ -40,5 +40,5 @@ func _on_blinkTimer_timeout():
 
 # De manera aleatoria cambiamos el estado de la bombilla
 func _random_bulb_state():
-	if randf() >= 0.5: on_light_bulb()
+	if randf() >= 0.7: on_light_bulb()
 	else: off_light_bulb()

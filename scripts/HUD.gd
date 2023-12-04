@@ -17,13 +17,15 @@ func _update_timer():
 func update_attemps(attemps):
 	if attemps > 0:
 		$Attemps/Label.set_text("Intentos: %d" % attemps)
+		
+func init_fuel_bar(value):
+	fuelBar.max_value = value
+	fuelBar.value = value
+	$FuelPanel/Label.set_text("%d / %d" % [fuelBar.value, fuelBar.max_value])
 
-func update_fuel_value(value):
+func increase_fuel_value(value):
 	fuelBar.value -= value
-	$FuelPanel/Label.set_text("%.2f %%" % _calculate_percentage_fuel())
+	$FuelPanel/Label.set_text("%d / %d" % [fuelBar.value, fuelBar.max_value])
 
-func _calculate_percentage_fuel():
-	var curr_percentage = (fuelBar.value / fuelBar.max_value) * 100
-	if curr_percentage <= 0:
-		return 0
-	return curr_percentage
+func _on_Player_player_fuel_lose(value):
+	increase_fuel_value(value)
