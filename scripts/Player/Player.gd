@@ -17,9 +17,9 @@ var _all_interactions = []
 ## Señales
 
 # Indica que el jugador ha perdido (value) puntos de combutible
-signal player_fuel_lose(value)
+signal reduce_fuel(value)
 # Indica que el jugador ha perdido todo su combutible
-signal player_lose_all_fuel()
+signal lost_all_fuel()
 
 ## Obtener referencias a los nodos
 
@@ -115,8 +115,8 @@ func _light_candel():
 # Maneja la perdida de combustible del jugador
 func _lose_fuel():
 	fuel -= GameStatistics.FUEL_CONSUME_VALUE
-	emit_signal("player_fuel_lose", GameStatistics.FUEL_CONSUME_VALUE)
+	emit_signal("reduce_fuel", GameStatistics.FUEL_CONSUME_VALUE)
 	
 	# Si ya no hay combustible envia una señal que el jug. perdió
 	if fuel <= 0:
-		emit_signal("player_lose_all_fuel")
+		emit_signal("lost_all_fuel")

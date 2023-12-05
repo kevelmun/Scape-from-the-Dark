@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resources/HUD/sprite-fuel-bar.png" type="Texture" id=1]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
+[ext_resource path="res://resources/Fonts/monogram.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.27451, 0.27451, 0.27451, 0.666667 )
@@ -14,6 +15,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://resources/Fonts/monogram.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 30
+font_data = SubResource( 9 )
+
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.27451, 0.27451, 0.27451, 0.666667 )
 border_width_left = 2
@@ -24,6 +32,14 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFontData" id=11]
+antialiased = false
+font_path = "res://resources/Fonts/monogram.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 30
+font_data = SubResource( 11 )
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.27451, 0.27451, 0.27451, 0.666667 )
@@ -53,13 +69,17 @@ flags = 71
 gradient = SubResource( 3 )
 fill_from = Vector2( 0.995833, 0.666667 )
 
+[sub_resource type="DynamicFont" id=13]
+size = 30
+font_data = ExtResource( 3 )
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
 
 [node name="TimerPanel" type="Panel" parent="."]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 120.0
+margin_right = 144.0
 margin_bottom = 64.0
 custom_styles/panel = SubResource( 6 )
 
@@ -68,27 +88,31 @@ margin_left = 8.0
 margin_top = 16.0
 margin_right = 104.0
 margin_bottom = 40.0
-text = "Tiempo: 300"
+custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Tiempo: 100"
 align = 1
 valign = 1
 
 [node name="Timer" type="Timer" parent="TimerPanel"]
-wait_time = 300.0
+wait_time = 100.0
 autostart = true
 
 [node name="Attemps" type="Panel" parent="."]
 margin_left = 8.0
-margin_top = 72.0
-margin_right = 120.0
-margin_bottom = 128.0
+margin_top = 80.0
+margin_right = 144.0
+margin_bottom = 136.0
 custom_styles/panel = SubResource( 7 )
 
 [node name="Label" type="Label" parent="Attemps"]
 margin_left = 8.0
 margin_top = 16.0
-margin_right = 104.0
+margin_right = 107.0
 margin_bottom = 40.0
-text = "Intentos:"
+custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "Intentos: 4"
 align = 1
 valign = 1
 
@@ -96,7 +120,7 @@ valign = 1
 margin_left = 896.0
 margin_top = 8.0
 margin_right = 1016.0
-margin_bottom = 128.0
+margin_bottom = 136.0
 custom_styles/panel = SubResource( 8 )
 
 [node name="TextureProgress" type="TextureProgress" parent="FuelPanel"]
@@ -120,6 +144,9 @@ texture = ExtResource( 1 )
 margin_left = 24.0
 margin_top = 96.0
 margin_right = 88.0
-margin_bottom = 112.0
+margin_bottom = 120.0
+custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "50/50"
 align = 1
 valign = 1

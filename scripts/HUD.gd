@@ -27,5 +27,5 @@ func increase_fuel_value(value):
 	fuelBar.value -= value
 	$FuelPanel/Label.set_text("%d / %d" % [fuelBar.value, fuelBar.max_value])
 
-func _on_Player_player_fuel_lose(value):
+func _on_Player_reduce_fuel(value):
 	increase_fuel_value(value)
