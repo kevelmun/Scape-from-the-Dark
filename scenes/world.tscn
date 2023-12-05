@@ -168,4 +168,5 @@ shape = SubResource( 7 )
 
 [connection signal="lost_all_fuel" from="Player" to="." method="_on_Player_lost_all_fuel"]
 [connection signal="reduce_fuel" from="Player" to="HUD" method="_on_Player_reduce_fuel"]
+[connection signal="attempt_timeout" from="HUD" to="." method="_on_HUD_attempt_timeout"]
 [connection signal="body_entered" from="DropZone" to="." method="_on_DropZone_body_entered"]

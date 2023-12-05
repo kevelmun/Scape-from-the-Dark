@@ -1,6 +1,8 @@
 extends CanvasLayer
 
-onready var timeCounter = $TimerPanel/Timer
+signal attempt_timeout()
+
+export onready var timeCounter = $TimerPanel/Timer
 onready var fuelBar = $FuelPanel/TextureProgress
 
 func _ready():
@@ -8,6 +10,9 @@ func _ready():
 	
 func _physics_process(delta):
 	_update_timer()
+
+func _on_Timer_timeout():
+	emit_signal("attempt_timeout")
 
 # Actualiza el tiempo sobrante acorde al Timer
 func _update_timer():
@@ -29,3 +34,5 @@ func increase_fuel_value(value):
 
 func _on_Player_reduce_fuel(value):
 	increase_fuel_value(value)
+
+

@@ -150,3 +150,5 @@ custom_fonts/font = SubResource( 13 )
 text = "50/50"
 align = 1
 valign = 1
+
+[connection signal="timeout" from="TimerPanel/Timer" to="." method="_on_Timer_timeout"]

@@ -6,7 +6,8 @@ const FUERZA_SALTO = -500
 const GRAVEDAD = 1200
 
 # Estadisticas del jugador
-var fuel = 50
+export var fuel = 50
+
 # Definir la velocidad inicial
 var velocidad = Vector2()
 # Estado del del fuego
@@ -103,7 +104,6 @@ func _on_CandelsDetector_area_entered(area):
 func _on_CandelsDetector_area_exited(area):
 	# Si nos salimos del area de la vela, borramos el nodo de la misma
 	_all_interactions.erase(area.get_parent())
-
 
 # Enciende la vela mas cercana si es que la hay
 func _light_candel():

@@ -9,8 +9,11 @@ func _ready():
 
 func _on_DropZone_body_entered(body):
 	_manage_lose_attempt()
-	
+
 func _on_Player_lost_all_fuel():
+	_manage_lose_attempt()
+
+func _on_HUD_attempt_timeout():
 	_manage_lose_attempt()
 
 func _manage_lose_attempt():
@@ -18,11 +21,9 @@ func _manage_lose_attempt():
 	
 	# Verificar si quedan intentos
 	if GameStatistics.player_attemps > 0:
+		# TODO: Agregar codigo al perder el intento
 		get_tree().reload_current_scene()
 	else:
-		#TODO Agregar codigo para el gameover
+		#TODO: Agregar codigo para el gameover
 		print("Valiste")
 		pass
-
-
-
