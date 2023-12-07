@@ -1,15 +1,17 @@
 extends Node2D
 
+# Cantidad de combustible para encender la vela
+var fuel_consumption
 var on = false
-var near_player = false
 
 onready var lightCandel = $Light2D
 onready var sprite = $AnimatedSprite
 
+func _init():
+	fuel_consumption = 15
+
 func _ready():
 	# TODO reemplazar este llamado de func. por extinguish_candel
-	# Solo se lo usa para pruebas
-#	light_candel()
 	extinguish_candel()
 
 # Encender vela
