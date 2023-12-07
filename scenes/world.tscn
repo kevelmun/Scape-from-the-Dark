@@ -175,7 +175,7 @@ position = Vector2( -88, -365 )
 position = Vector2( 266, -585 )
 
 [node name="Candel_XS2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 348, -888 )
+position = Vector2( 236, -1001 )
 
 [node name="HUD" parent="." instance=ExtResource( 12 )]
 
