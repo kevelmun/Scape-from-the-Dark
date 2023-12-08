@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://resources/HUD/sprite-fuel-bar.png" type="Texture" id=1]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
 [ext_resource path="res://resources/Fonts/monogram.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.27451, 0.27451, 0.27451, 0.666667 )
 border_width_left = 2
 border_width_top = 2
@@ -22,17 +22,6 @@ font_path = "res://resources/Fonts/monogram.ttf"
 size = 30
 font_data = SubResource( 9 )
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.27451, 0.27451, 0.27451, 0.666667 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="DynamicFontData" id=11]
 antialiased = false
 font_path = "res://resources/Fonts/monogram.ttf"
@@ -40,17 +29,6 @@ font_path = "res://resources/Fonts/monogram.ttf"
 [sub_resource type="DynamicFont" id=12]
 size = 30
 font_data = SubResource( 11 )
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.27451, 0.27451, 0.27451, 0.666667 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="Gradient" id=1]
 interpolation_mode = 1
@@ -81,7 +59,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 144.0
 margin_bottom = 64.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="Label" type="Label" parent="TimerPanel"]
 margin_left = 8.0
@@ -103,7 +81,7 @@ margin_left = 8.0
 margin_top = 80.0
 margin_right = 144.0
 margin_bottom = 136.0
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="Label" type="Label" parent="Attemps"]
 margin_left = 8.0
