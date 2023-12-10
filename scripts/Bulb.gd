@@ -4,6 +4,7 @@ onready var light = $Light2D
 onready var sprite = $AnimatedSprite
 
 onready var flicker = $flickerTimer
+onready var waitFlicker = $waitFlickerTimer
 
 # Acciones al cargar la escena
 func _ready():
@@ -30,7 +31,9 @@ func _on_blinkTimer_timeout():
 			off_light_bulb()
 		else:
 			on_light_bulb()
-		yield(get_tree().create_timer(0.2), "timeout") # Esperamos 0.2 segundos
+			
+		waitFlicker.start(0.2)
+		yield(waitFlicker, "timeout") # Esperamos 0.2 segundos
 	
 	# Al finalizar, reinicia el temporizador de parpadeo con x seg.
 	print("La bombilla empieza a parpadear en: ", rnd_time)
