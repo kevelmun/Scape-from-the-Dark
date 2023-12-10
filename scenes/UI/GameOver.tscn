@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/Fonts/monogram.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/GameOver.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.329412, 0.309804, 0.309804, 0.788235 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -337.5
+margin_top = -181.0
+margin_right = 337.5
+margin_bottom = 181.0
+custom_constants/separation = 24
+
+[node name="VBoxPauseMessage" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 675.0
+margin_bottom = 159.0
+
+[node name="PauseLabel" type="Label" parent="VBoxContainer/VBoxPauseMessage"]
+margin_right = 675.0
+margin_bottom = 159.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="VBoxButtons" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 183.0
+margin_right = 675.0
+margin_bottom = 362.0
+
+[node name="BackButton" type="Button" parent="VBoxContainer/VBoxButtons"]
+margin_right = 675.0
+margin_bottom = 57.0
+custom_colors/font_color_focus = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+text = "Main Menu"
+flat = true
+
+[node name="RestartButton" type="Button" parent="VBoxContainer/VBoxButtons"]
+margin_top = 61.0
+margin_right = 675.0
+margin_bottom = 118.0
+custom_colors/font_color_focus = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+text = "Restart"
+flat = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxButtons"]
+margin_top = 122.0
+margin_right = 675.0
+margin_bottom = 179.0
+custom_colors/font_color_focus = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+text = "Quit"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/VBoxButtons/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxButtons/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
