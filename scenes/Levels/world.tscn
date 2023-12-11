@@ -1,18 +1,20 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://resources/World/initial platform.png" type="Texture" id=1]
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Entities/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/World/BackGround.png" type="Texture" id=3]
 [ext_resource path="res://resources/World/final door.png" type="Texture" id=4]
 [ext_resource path="res://resources/Objects/bulb.png" type="Texture" id=5]
 [ext_resource path="res://resources/World/plataform.png" type="Texture" id=6]
-[ext_resource path="res://scenes/bulb.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/candel.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/candel_s.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/wind.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/candel_xs.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Entities/bulb.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Entities/candel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Entities/candel_s.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Entities/wind.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Entities/candel_xs.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/UI/HUD.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scripts/World.gd" type="Script" id=13]
+[ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/UI/GameOver.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 19.7931, 3.13803 )
@@ -178,6 +180,11 @@ position = Vector2( 266, -585 )
 position = Vector2( 236, -1001 )
 
 [node name="HUD" parent="." instance=ExtResource( 12 )]
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource( 14 )]
+
+[node name="GameOver" parent="HUD" instance=ExtResource( 15 )]
+pause_mode = 2
 
 [node name="DropZone" type="Area2D" parent="."]
 
