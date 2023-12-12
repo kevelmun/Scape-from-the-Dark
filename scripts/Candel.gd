@@ -34,3 +34,15 @@ func switch_candel():
 		light_candel()
 	else:
 		extinguish_candel()
+
+# Actualiza el estado del jugador para indicar si se encuentra en una area segura o no
+func update_state_safe_area_player(body, value):
+	if body.get_name() == "Player" and on:
+		body.in_safe_area = value
+		print("Player in safe area: ", body.in_safe_area)
+
+func _on_CandelArea_body_entered(body):
+	update_state_safe_area_player(body, true)
+
+func _on_CandelArea_body_exited(body):
+	update_state_safe_area_player(body, false)

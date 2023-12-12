@@ -180,6 +180,9 @@ texture = ExtResource( 4 )
 position = Vector2( 0, -10 )
 shape = SubResource( 10 )
 
+[node name="LoseFuelTimer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="CandelsDetector" to="." method="_on_CandelsDetector_area_entered"]
 [connection signal="area_exited" from="CandelsDetector" to="." method="_on_CandelsDetector_area_exited"]
+[connection signal="timeout" from="LoseFuelTimer" to="." method="_on_LoseFuelTimer_timeout"]
