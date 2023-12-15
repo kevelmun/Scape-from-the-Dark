@@ -41,3 +41,6 @@ energy = 0.75
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CandelArea"]
 shape = SubResource( 6 )
+
+[connection signal="body_entered" from="CandelArea" to="." method="_on_CandelArea_body_entered"]
+[connection signal="body_exited" from="CandelArea" to="." method="_on_CandelArea_body_exited"]
