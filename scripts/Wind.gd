@@ -5,6 +5,7 @@ var time_to_blow = 0.0	#Tiempo de espera para apagar la siguiente vela
 var min_time = 10.0		#Tiempo mínimo de espera hasta apagar una vela
 var max_time = 30.0		#Tiempo máximo de espera hasta apagar una vela
 var rnd_index 			#Indice de la vela a apagar
+var candle
 
 var windTween = Tween.new()	 #Tween para mover la brisa hacia la vela 
 
@@ -21,16 +22,16 @@ func _process(delta):
 		if candels_list.size() > 0:
 			#Selecciona una vela de la lista
 			rnd_index= randi() % candels_list.size()
-			var target = candels_list[rnd_index].global_position
+			candle = candels_list[rnd_index]
 			
 			# Mueve la brisa hacia la vela seleccionada
-			move_wind_to_target(target)
+			move_wind_to_target(candle.global_position)
 		set_next_blow_time()
 
 # Función para apagar una vela
 func _blow_a_candle():
 	if candels_list.size() > 0:
-		var candle = candels_list[rnd_index]
+		#var candle = candels_list[rnd_index]
 		candle.extinguish_candel()
 		candels_list.remove(rnd_index)
 
