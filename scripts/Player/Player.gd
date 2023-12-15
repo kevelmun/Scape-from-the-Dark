@@ -6,7 +6,7 @@ const FUERZA_SALTO = -500
 const GRAVEDAD = 1200
 
 # Estadisticas del jugador
-export var fuel = 50
+export var fuel = 20
 
 # Definir la velocidad inicial
 var velocidad = Vector2()
