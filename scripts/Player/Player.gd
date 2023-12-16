@@ -89,12 +89,22 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		light2d.enabled = true
 		animacion.play("Fire")
 		
+	# 	# Verificamos si hay velas para encender
+	# 	_light_candel()
+	# 	# Iniciamos un timer que se ejecuta cada seg. que presionamos el boton
+	# 	loseFuelTimer.start(1)
+		
+	
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	if anim_name == "Fire" and fire_on:
+		print("CONSUME COMBUSTIBLE")
 		# Verificamos si hay velas para encender
 		_light_candel()
 		# Iniciamos un timer que se ejecuta cada seg. que presionamos el boton
 		loseFuelTimer.start(1)
-		
-	elif anim_name == "Fire":
+
+	elif anim_name == "Fire_Start":
 		loseFuelTimer.stop()
 
 func _on_CandelsDetector_area_entered(area):
