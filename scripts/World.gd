@@ -16,6 +16,10 @@ func _on_Player_lost_all_fuel():
 func _on_HUD_attempt_timeout():
 	_manage_lose_attempt()
 
+func _on_Bulb2_light_bulb_off():
+	if not player.in_safe_area:
+		print("Jugador no se encuentra en el area segura")
+
 func _manage_lose_attempt():
 	GameStatistics.player_attemps -= 1
 	
@@ -29,4 +33,7 @@ func _manage_lose_attempt():
 		GameStatistics.player_attemps = 4
 		$HUD/GameOver.visible = true 
 		print("Valiste")
-		pass
+
+
+
+		

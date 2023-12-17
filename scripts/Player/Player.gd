@@ -105,11 +105,12 @@ func _physics_process(delta):
 	# Mover el personaje
 	velocidad = move_and_slide(velocidad, Vector2.UP)
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Fire_Start" and fire_on:
 		light2d.enabled = true
 		animacion.play("Fire")
+		# Quitamos la cantidad de combustible al encender la chispa
+		_lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)
 		
 	# 	# Verificamos si hay velas para encender
 	# 	_light_candel()
@@ -155,4 +156,7 @@ func _lose_fuel(lose_value):
 	
 	# Si ya no hay combustible envia una señal que el jug. perdió
 	if fuel <= 0: emit_signal("lost_all_fuel")
+
+
+
 
