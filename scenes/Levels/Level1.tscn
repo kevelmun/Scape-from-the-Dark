@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
@@ -42,7 +42,6 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround/FinalDoor/StaticBody2D"]
 position = Vector2( 0.103226, 32.8398 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 one_way_collision = true
 
@@ -54,7 +53,7 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( -458736, 4, 0, -65538, 1, 0 )
+tile_data = PoolIntArray( -7143426, 6, 0, -7208942, 7, 0, -6946810, 5, 0, -6881257, 5, 0, -6619138, 4, 0, -6291450, 7, 0, -6291434, 6, 0, -5898226, 5, 0, -5701633, 4, 0, -5636073, 5, 0, -5308400, 7, 0, -5242874, 5, 0, -5046249, 6, 0, -4784130, 6, 0, -4587512, 4, 0, -4194286, 5, 0, -3997695, 7, 0, -3801078, 5, 0, -3538927, 6, 0, -3276794, 5, 0, -3080169, 4, 0, -2883586, 4, 0, -2818038, 7, 0, -2293746, 6, 0, -1769457, 4, 0, -1638401, 5, 0, -1310714, 6, 0, -1310697, 5, 0, -1048561, 4, 0, -917504, 7, 0, -720873, 6, 0, -655353, 5, 0, -393199, 4, 0, -65538, 1, 0 )
 
 [node name="Bulb" type="Sprite" parent="."]
 visible = false
@@ -62,7 +61,7 @@ position = Vector2( 206, -1929 )
 texture = ExtResource( 4 )
 
 [node name="Bulb2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 204, -1932 )
+position = Vector2( 216, -1932 )
 
 [node name="Edges" type="Node2D" parent="."]
 
@@ -93,10 +92,10 @@ position = Vector2( 286, -275 )
 duration = 50
 
 [node name="Candle4" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 163, -195 )
+position = Vector2( 160, -191 )
 
 [node name="Candle5" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 300, -131 )
+position = Vector2( 317, -117 )
 
 [node name="Candle6" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 417, -355 )
