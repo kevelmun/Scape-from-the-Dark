@@ -6,7 +6,7 @@ export onready var timeCounter = $TimerPanel/Timer
 onready var fuelBar = $FuelPanel/TextureProgress
 
 func _ready():
-	pass
+	$FlashTimer.visible = false
 	
 func _physics_process(delta):
 	_update_timer()
@@ -35,4 +35,10 @@ func increase_fuel_value(value):
 func _on_Player_reduce_fuel(value):
 	increase_fuel_value(value)
 
-
+func _on_Bulb2_time_left_for_flashing(time_left):
+	if time_left > 0:
+		$FlashTimer.visible = true
+		$FlashTimer/Label.set_text("Empieza a parpadear en: %d" % time_left)
+	else:
+		$FlashTimer.visible = false
+		$FlashTimer/Label.set_text("Empieza a parpadear en: 5")
