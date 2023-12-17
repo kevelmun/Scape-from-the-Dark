@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resources/character/New Version/Character SH Final.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player/Movement.gd" type="Script" id=2]
@@ -97,10 +97,25 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4, 5 ]
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Jump_2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -157,6 +172,7 @@ anims/Fire_Start = SubResource( 8 )
 anims/Gesture_1 = SubResource( 9 )
 anims/Idle = SubResource( 2 )
 anims/Jump = SubResource( 7 )
+anims/Jump_2 = SubResource( 11 )
 anims/RESET = SubResource( 3 )
 anims/Walk = SubResource( 4 )
 

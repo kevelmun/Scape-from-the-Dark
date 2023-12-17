@@ -1,22 +1,20 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
-[ext_resource path="res://resources/World/final door.png" type="Texture" id=3]
+[ext_resource path="res://resources/World/New Version/FinalDoor.png" type="Texture" id=3]
 [ext_resource path="res://resources/Objects/bulb.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Entities/candle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/World/BackGround.png" type="Texture" id=6]
-[ext_resource path="res://scenes/Entities/candel_xs.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/UI/GameOver.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/UI/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Entities/player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Entities/candel.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Entities/wind.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Entities/bulb.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/Entities/candel_s.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 19.7931, 3.13803 )
+extents = Vector2( 48.7821, 15.1557 )
 
 [sub_resource type="SegmentShape2D" id=5]
 a = Vector2( -34, -1952 )
@@ -46,14 +44,14 @@ position = Vector2( 218, -952 )
 texture = ExtResource( 6 )
 
 [node name="FinalDoor" type="Sprite" parent="BackGround"]
-position = Vector2( -15, -865 )
-scale = Vector2( 2.07143, 2.07143 )
+position = Vector2( -14.609, -884.669 )
 texture = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BackGround/FinalDoor"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackGround/FinalDoor/StaticBody2D"]
-position = Vector2( 0, 15.207 )
+position = Vector2( 0.103226, 32.8398 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 one_way_collision = true
 
@@ -72,20 +70,7 @@ position = Vector2( 206, -1929 )
 texture = ExtResource( 4 )
 
 [node name="Bulb2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 215, -1935 )
-
-[node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 47, -49 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 171, -53 )
-current = true
-zoom = Vector2( 0.488, 0.5 )
-limit_left = 0
-limit_top = -1952
-limit_right = 468
-limit_bottom = 48
-drag_margin_h_enabled = true
+position = Vector2( 204, -1932 )
 
 [node name="Edges" type="Node2D" parent="."]
 
@@ -98,45 +83,128 @@ shape = SubResource( 5 )
 position = Vector2( -2, -2 )
 shape = SubResource( 6 )
 
-[node name="Candel_S" parent="." instance=ExtResource( 15 )]
-position = Vector2( 295, -120 )
-
-[node name="Candel_S3" parent="." instance=ExtResource( 15 )]
-position = Vector2( 137, -648 )
-
-[node name="Candel_S5" parent="." instance=ExtResource( 15 )]
-position = Vector2( 304, -1320 )
-
-[node name="Candel" parent="." instance=ExtResource( 12 )]
-position = Vector2( 54, -248 )
-
-[node name="Candel4" parent="." instance=ExtResource( 12 )]
-position = Vector2( 284, -264 )
-
-[node name="Candel3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 151, -1560 )
-
-[node name="Candel2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 295, -856 )
-scale = Vector2( 1.09037, 1.07138 )
-
-[node name="Candel5" parent="." instance=ExtResource( 12 )]
-position = Vector2( 263, -1464 )
-
-[node name="Candel_S2" parent="." instance=ExtResource( 15 )]
-position = Vector2( 289, -440 )
-
-[node name="Candel_S4" parent="." instance=ExtResource( 15 )]
-position = Vector2( 174, -1128 )
-
 [node name="Wind" parent="." instance=ExtResource( 13 )]
 position = Vector2( -88, -365 )
 
-[node name="Candel_XS" parent="." instance=ExtResource( 7 )]
-position = Vector2( 266, -585 )
+[node name="Candles" type="Node2D" parent="."]
 
-[node name="Candel_XS2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 207, -953 )
+[node name="Candle" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 144, -355 )
+duration = 30
+
+[node name="Candle2" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 51, -259 )
+duration = 73
+
+[node name="Candle3" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 286, -275 )
+duration = 50
+
+[node name="Candle4" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 163, -195 )
+
+[node name="Candle5" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 300, -131 )
+
+[node name="Candle6" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 417, -355 )
+duration = 80
+
+[node name="Candle7" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 43, -451 )
+duration = 80
+
+[node name="Candle8" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 290, -451 )
+
+[node name="Candle9" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 274, -595 )
+duration = 90
+
+[node name="Candle10" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 50, -739 )
+duration = 67
+
+[node name="Candle11" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 420, -771 )
+
+[node name="Candle12" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 143, -835 )
+duration = 78
+
+[node name="Candle13" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 211, -963 )
+duration = 67
+
+[node name="Candle14" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 66, -1011 )
+duration = 86
+
+[node name="Candle15" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 330, -1061 )
+duration = 44
+
+[node name="Candle16" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 177, -1139 )
+duration = 56
+
+[node name="Candle17" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 28, -1219 )
+duration = 29
+
+[node name="Candle18" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 155, -1315 )
+duration = 55
+
+[node name="Candle19" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 435, -1267 )
+duration = 76
+
+[node name="Candle20" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 307, -1331 )
+
+[node name="Candle21" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 419, -1411 )
+
+[node name="Candle22" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 275, -1475 )
+duration = 88
+
+[node name="Candle23" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 404, -1571 )
+duration = 80
+
+[node name="Candle24" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 156, -1571 )
+duration = 53
+
+[node name="Candle25" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 146, -1731 )
+duration = 20
+
+[node name="Candle26" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 435, -1715 )
+
+[node name="Candle27" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 19, -1779 )
+duration = 10
+
+[node name="Candle28" parent="Candles" instance=ExtResource( 5 )]
+position = Vector2( 337, -1795 )
+duration = 50
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+position = Vector2( 47, -48 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 171, -53 )
+current = true
+zoom = Vector2( 0.488, 0.5 )
+limit_left = 0
+limit_top = -1952
+limit_right = 468
+limit_bottom = 48
+drag_margin_h_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource( 10 )]
 
