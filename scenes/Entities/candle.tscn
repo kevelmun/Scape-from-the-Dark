@@ -1,0 +1,191 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://resources/Objects/New Version/CandleSH.png" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/Lights/round_light.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Candle.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fire_Off_L"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fire_Off_M"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 13 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Fire_Off_S"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 14 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Fire_Off_XS"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 15 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Fire_On_L"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Fire_On_M"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Fire_On_S"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Fire_On_XS"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 43.0237
+
+[node name="Candle" type="Node2D"]
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 12
+vframes = 2
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, 22.8571 )
+scale = Vector2( 1, 1 )
+enabled = false
+texture = ExtResource( 2 )
+texture_scale = 0.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fire_Off_L = SubResource( 1 )
+anims/Fire_Off_M = SubResource( 2 )
+anims/Fire_Off_S = SubResource( 3 )
+anims/Fire_Off_XS = SubResource( 4 )
+anims/Fire_On_L = SubResource( 5 )
+anims/Fire_On_M = SubResource( 6 )
+anims/Fire_On_S = SubResource( 7 )
+anims/Fire_On_XS = SubResource( 8 )
+anims/RESET = SubResource( 9 )
+
+[node name="CandelArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CandelArea"]
+position = Vector2( -1.42857, 17.1429 )
+shape = SubResource( 10 )
+
+[connection signal="body_entered" from="CandelArea" to="." method="_on_CandelArea_body_entered"]
+[connection signal="body_exited" from="CandelArea" to="." method="_on_CandelArea_body_exited"]
