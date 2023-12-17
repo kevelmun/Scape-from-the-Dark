@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://resources/character/spritesheet (1).png" type="Texture" id=1]
+[ext_resource path="res://resources/character/New Version/Character SH Final.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player/Movement.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=3]
 [ext_resource path="res://resources/Objects/Lights/round_light.png" type="Texture" id=4]
@@ -32,10 +32,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 14, 15, 16, 17 ]
+"values": [ 13, 14 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -48,15 +48,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 10, 11, 12, 13 ]
+"values": [ 8, 9, 10, 11, 12 ]
 }
 
 [sub_resource type="Animation" id=9]
 resource_name = "Gesture_1"
-length = 5.0
+length = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -64,10 +64,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.800242, 0.850394, 0.900082, 0.950696, 1.0003, 1.30196, 2.30822, 4.3012, 4.39549, 6.30312, 6.40561 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 20, 21, 22, 23, 24, 25 ]
+"values": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -120,7 +120,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "Walk"
-length = 0.8
+length = 0.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -129,14 +129,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 6, 7, 8, 9 ]
+"values": [ 19, 20, 21, 22, 23, 24 ]
 }
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 36, 20 )
+extents = Vector2( 37, 18 )
 
 [sub_resource type="CircleShape2D" id=10]
 radius = 25.02
@@ -146,7 +146,7 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 10
+hframes = 19
 vframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -161,7 +161,7 @@ anims/RESET = SubResource( 3 )
 anims/Walk = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2, -3 )
+position = Vector2( -0.5, 4 )
 scale = Vector2( 0.5, 1 )
 shape = SubResource( 1 )
 
@@ -169,7 +169,7 @@ shape = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 5, -5 )
+position = Vector2( 0, -15 )
 scale = Vector2( 0.11377, 0.11377 )
 enabled = false
 texture = ExtResource( 4 )
@@ -177,12 +177,12 @@ texture = ExtResource( 4 )
 [node name="CandelsDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CandelsDetector"]
-position = Vector2( 0, -10 )
 shape = SubResource( 10 )
 
 [node name="LoseFuelTimer" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
 [connection signal="area_entered" from="CandelsDetector" to="." method="_on_CandelsDetector_area_entered"]
 [connection signal="area_exited" from="CandelsDetector" to="." method="_on_CandelsDetector_area_exited"]
 [connection signal="timeout" from="LoseFuelTimer" to="." method="_on_LoseFuelTimer_timeout"]

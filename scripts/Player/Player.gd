@@ -6,7 +6,7 @@ const FUERZA_SALTO = -500
 const GRAVEDAD = 1200
 
 # Estadisticas del jugador
-export var fuel = 50
+export var fuel = 20
 
 # Definir la velocidad inicial
 var velocidad = Vector2()
@@ -89,12 +89,23 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		animacion.play("Fire")
 		# Quitamos la cantidad de combustible al encender la chispa
 		_lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)
+		
+	# 	# Verificamos si hay velas para encender
+	# 	_light_candel()
+	# 	# Iniciamos un timer que se ejecuta cada seg. que presionamos el boton
+	# 	loseFuelTimer.start(1)
+		
+	
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	if anim_name == "Fire" and fire_on:
+		print("CONSUME COMBUSTIBLE")
 		# Verificamos si hay velas para encender
 		_light_candel()
 		# Iniciamos un timer que se ejecuta cada seg. que presionamos el boton
 		loseFuelTimer.start(1)
-		
-	elif anim_name == "Fire":
+
+	elif anim_name == "Fire_Start":
 		loseFuelTimer.stop()
 
 func _on_CandelsDetector_area_entered(area):
