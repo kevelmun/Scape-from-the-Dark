@@ -53,7 +53,7 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( -7143426, 6, 0, -7208942, 7, 0, -6946810, 5, 0, -6881257, 5, 0, -6619138, 4, 0, -6291450, 7, 0, -6291434, 6, 0, -5898226, 5, 0, -5701633, 4, 0, -5636073, 5, 0, -5308400, 7, 0, -5242874, 5, 0, -5046249, 6, 0, -4784130, 6, 0, -4587512, 4, 0, -4194286, 5, 0, -3997695, 7, 0, -3801078, 5, 0, -3538927, 6, 0, -3276794, 5, 0, -3080169, 4, 0, -2883586, 4, 0, -2818038, 7, 0, -2293746, 6, 0, -1769457, 4, 0, -1638401, 5, 0, -1310714, 6, 0, -1310697, 5, 0, -1048561, 4, 0, -917504, 7, 0, -720873, 6, 0, -655353, 5, 0, -393199, 4, 0, -65538, 1, 0 )
+tile_data = PoolIntArray( -7274476, 6, 0, -7208960, 6, 0, -6946805, 4, 0, -6619138, 4, 0, -6684651, 7, 0, -6488056, 4, 0, -6094831, 5, 0, -5963774, 7, 0, -5701610, 6, 0, -5636086, 5, 0, -5308416, 6, 0, -5177327, 7, 0, -5046266, 4, 0, -4718574, 5, 0, -4653056, 6, 0, -4390902, 7, 0, -4128746, 5, 0, -3997697, 5, 0, -3801072, 6, 0, -3670009, 7, 0, -3538921, 7, 0, -3407855, 4, 0, -3211265, 5, 0, -3080186, 6, 0, -2818034, 4, 0, -2555881, 4, 0, -2424834, 4, 0, -2293745, 5, 0, -2097146, 7, 0, -2031594, 6, 0, -1703938, 6, 0, -1507310, 7, 0, -1441791, 5, 0, -1245175, 6, 0, -1048553, 5, 0, -917504, 7, 0, -917489, 4, 0, -720873, 6, 0, -655353, 5, 0, -393199, 4, 0, -65538, 1, 0 )
 
 [node name="Bulb" type="Sprite" parent="."]
 visible = false
@@ -80,109 +80,96 @@ position = Vector2( -88, -365 )
 [node name="Candles" type="Node2D" parent="."]
 
 [node name="Candle" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 144, -355 )
+position = Vector2( 162, -189 )
 duration = 30
 
 [node name="Candle2" parent="Candles" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 51, -259 )
 duration = 73
 
 [node name="Candle3" parent="Candles" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 286, -275 )
 duration = 50
 
 [node name="Candle4" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 160, -191 )
+position = Vector2( 195, -334 )
 
 [node name="Candle5" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 317, -117 )
+position = Vector2( 321, -113 )
 
 [node name="Candle6" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 417, -355 )
+position = Vector2( 338, -401 )
 duration = 80
 
 [node name="Candle7" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 43, -451 )
+position = Vector2( 13, -624 )
 duration = 80
 
 [node name="Candle8" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 290, -451 )
+position = Vector2( 407, -641 )
 
 [node name="Candle9" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 274, -595 )
+position = Vector2( 147, -545 )
 duration = 90
 
 [node name="Candle10" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 50, -739 )
+position = Vector2( 264, -704 )
 duration = 67
 
 [node name="Candle11" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 420, -771 )
+position = Vector2( 324, -847 )
 
 [node name="Candle12" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 143, -835 )
+position = Vector2( 45, -826 )
 duration = 78
 
 [node name="Candle13" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 211, -963 )
+position = Vector2( 306, -958 )
 duration = 67
 
 [node name="Candle14" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 66, -1011 )
+position = Vector2( 56, -1019 )
 duration = 86
 
 [node name="Candle15" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 330, -1061 )
+position = Vector2( 382, -1034 )
 duration = 44
 
 [node name="Candle16" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 177, -1139 )
+position = Vector2( 144, -1247 )
 duration = 56
 
 [node name="Candle17" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 28, -1219 )
+position = Vector2( 82, -1488 )
 duration = 29
 
 [node name="Candle18" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 155, -1315 )
+position = Vector2( 205, -1402 )
 duration = 55
 
 [node name="Candle19" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 435, -1267 )
+position = Vector2( 336, -1179 )
 duration = 76
 
 [node name="Candle20" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 307, -1331 )
+position = Vector2( 19, -1649 )
 
 [node name="Candle21" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 419, -1411 )
-
-[node name="Candle22" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 275, -1475 )
-duration = 88
+position = Vector2( 403, -1423 )
 
 [node name="Candle23" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 404, -1571 )
+position = Vector2( 387, -1664 )
 duration = 80
 
 [node name="Candle24" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 156, -1571 )
+position = Vector2( 49.0001, -1789 )
 duration = 53
 
 [node name="Candle25" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 146, -1731 )
+position = Vector2( 369, -1807 )
 duration = 20
-
-[node name="Candle26" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 435, -1715 )
-
-[node name="Candle27" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 19, -1779 )
-duration = 10
-
-[node name="Candle28" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 337, -1795 )
-duration = 50
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 position = Vector2( 47, -48 )
