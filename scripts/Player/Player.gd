@@ -140,6 +140,7 @@ func _on_CandelsDetector_area_exited(area):
 
 func _on_LoseFuelTimer_timeout():
 	if fire_on: _lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)
+	print("Contador fuego")
 
 # Enciende la vela mas cercana si es que la hay
 func _light_candel():
