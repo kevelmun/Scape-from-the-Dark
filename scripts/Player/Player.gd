@@ -116,7 +116,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	# 	_light_candel()
 	# 	# Iniciamos un timer que se ejecuta cada seg. que presionamos el boton
 	# 	loseFuelTimer.start(1)
-		
+	if anim_name == "Fire" and fire_on:
+		loseFuelTimer.stop()
 	
 
 func _on_AnimationPlayer_animation_started(anim_name):
@@ -127,9 +128,6 @@ func _on_AnimationPlayer_animation_started(anim_name):
 		# Iniciamos un timer que se ejecuta cada seg. que presionamos el boton
 		loseFuelTimer.start(1)
 
-	elif anim_name == "Fire_Start":
-		loseFuelTimer.stop()
-
 func _on_CandelsDetector_area_entered(area):
 	var curr_node = area.get_parent()
 	if "Candle" in curr_node.get_name():
@@ -139,8 +137,7 @@ func _on_CandelsDetector_area_exited(area):
 	_all_interactions.erase(area.get_parent())
 
 func _on_LoseFuelTimer_timeout():
-	if fire_on: _lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)
-	print("Contador fuego")
+	if fire_on: _lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)	
 
 # Enciende la vela mas cercana si es que la hay
 func _light_candel():
