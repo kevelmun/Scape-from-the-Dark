@@ -1,6 +1,7 @@
 extends Node2D
 
 signal light_bulb_off()
+signal light_bulb_on()
 signal time_left_for_flashing(time_left)
 
 onready var light = $Light2D
@@ -50,6 +51,7 @@ func _on_blinkTimer_timeout():
 func _random_bulb_state():
 	if randf() >= 0.3:
 		on_light_bulb()
+		emit_signal("light_bulb_on")
 	else:
 		off_light_bulb()
 		# Emitimos una senal de que la bombilla estara apagada temporalmente

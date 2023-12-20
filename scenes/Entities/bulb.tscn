@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/Objects/bulb.png" type="Texture" id=1]
 [ext_resource path="res://resources/Objects/bulb_on.png" type="Texture" id=2]
-[ext_resource path="res://resources/Objects/Lights/lamp_light.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Bulb.gd" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -22,6 +21,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Gradient" id=4]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.51073, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.725322, 0.725322, 0.725322, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=5]
+gradient = SubResource( 4 )
+width = 510
+height = 1500
+fill_from = Vector2( 1, 1 )
+
 [node name="Bulb" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -30,9 +40,9 @@ frames = SubResource( 3 )
 frame = 1
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 1.99999, 989.5 )
-scale = Vector2( 1, 2.029 )
-texture = ExtResource( 3 )
+position = Vector2( 1.99999, 1243.13 )
+scale = Vector2( 1, 1.69083 )
+texture = SubResource( 5 )
 
 [node name="flickerTimer" type="Timer" parent="."]
 wait_time = 20.0

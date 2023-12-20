@@ -56,6 +56,8 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 25
+outline_size = 1
+outline_color = Color( 0.223529, 0.203922, 0.203922, 1 )
 font_data = ExtResource( 3 )
 
 [node name="HUD" type="CanvasLayer"]
@@ -144,13 +146,13 @@ margin_bottom = 64.0
 custom_styles/panel = SubResource( 14 )
 
 [node name="Label" type="Label" parent="FlashTimer"]
-margin_left = 16.0
+margin_left = -6.0
 margin_top = 8.0
-margin_right = 312.0
+margin_right = 327.0
 margin_bottom = 32.0
 custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
 custom_fonts/font = SubResource( 15 )
-text = "Empieza a parpadear en: 5"
+text = "El bombillo empieza a parpadear en: 5"
 align = 1
 valign = 1
 
