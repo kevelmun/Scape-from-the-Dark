@@ -1,16 +1,41 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
+[ext_resource path="res://resources/World/New Version/FinalDoor.png" type="Texture" id=3]
 [ext_resource path="res://scenes/Entities/candle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/World/BackGround.png" type="Texture" id=6]
-[ext_resource path="res://scenes/Entities/door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/UI/GameOver.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/UI/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Entities/player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Entities/wind.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Entities/bulb.tscn" type="PackedScene" id=14]
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Sprite
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 48.7821, 15.6633 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 13.75, 24 )
 
 [sub_resource type="SegmentShape2D" id=5]
 a = Vector2( -34, -1952 )
@@ -30,9 +55,23 @@ script = ExtResource( 1 )
 position = Vector2( 218, -952 )
 texture = ExtResource( 6 )
 
-[node name="Door" parent="." instance=ExtResource( 7 )]
-position = Vector2( 210, -1843 )
-NEXT_LEVEL = "res://scenes/Levels/Level2.tscn"
+[node name="FinalDoor" type="Sprite" parent="."]
+position = Vector2( 203.391, -1836.67 )
+texture = ExtResource( 3 )
+script = SubResource( 8 )
+
+[node name="Platform" type="StaticBody2D" parent="FinalDoor"]
+
+[node name="PlatformCollision" type="CollisionShape2D" parent="FinalDoor/Platform"]
+position = Vector2( 0.103226, 32.3323 )
+shape = SubResource( 4 )
+one_way_collision = true
+
+[node name="Door" type="Area2D" parent="FinalDoor"]
+
+[node name="Hitbox" type="CollisionShape2D" parent="FinalDoor/Door"]
+position = Vector2( 0.358994, -7.33105 )
+shape = SubResource( 9 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0980392, 0.0901961, 0.0901961, 1 )
@@ -45,6 +84,7 @@ format = 1
 tile_data = PoolIntArray( -7274476, 6, 0, -7208960, 6, 0, -6946805, 4, 0, -6619138, 4, 0, -6684651, 7, 0, -6488056, 4, 0, -6094831, 5, 0, -5963774, 7, 0, -5701610, 6, 0, -5636086, 5, 0, -5308416, 6, 0, -5177327, 7, 0, -5046266, 4, 0, -4718574, 5, 0, -4653056, 6, 0, -4390902, 7, 0, -4128746, 5, 0, -3997697, 5, 0, -3801072, 6, 0, -3670009, 7, 0, -3538921, 7, 0, -3407855, 4, 0, -3211265, 5, 0, -3080186, 6, 0, -2818034, 4, 0, -2555881, 4, 0, -2424834, 4, 0, -2293745, 5, 0, -2097146, 7, 0, -2031594, 6, 0, -1703938, 6, 0, -1507310, 7, 0, -1441791, 5, 0, -1245175, 6, 0, -1048553, 5, 0, -917504, 7, 0, -917489, 4, 0, -720873, 6, 0, -655353, 5, 0, -393199, 4, 0, -65538, 1, 0 )
 
 [node name="Bulb2" parent="." instance=ExtResource( 14 )]
+visible = false
 position = Vector2( 216, -1932 )
 
 [node name="Edges" type="Node2D" parent="."]
@@ -78,13 +118,13 @@ position = Vector2( 286, -275 )
 duration = 50
 
 [node name="Candle4" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 197, -321 )
+position = Vector2( 195, -334 )
 
 [node name="Candle5" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 321, -113 )
 
 [node name="Candle6" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 338, -393 )
+position = Vector2( 338, -401 )
 duration = 80
 
 [node name="Candle7" parent="Candles" instance=ExtResource( 5 )]
@@ -95,7 +135,7 @@ duration = 80
 position = Vector2( 407, -641 )
 
 [node name="Candle9" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 150, -537 )
+position = Vector2( 147, -545 )
 duration = 90
 
 [node name="Candle10" parent="Candles" instance=ExtResource( 5 )]
@@ -110,7 +150,7 @@ position = Vector2( 45, -826 )
 duration = 78
 
 [node name="Candle13" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 310, -945 )
+position = Vector2( 306, -958 )
 duration = 67
 
 [node name="Candle14" parent="Candles" instance=ExtResource( 5 )]
@@ -126,7 +166,7 @@ position = Vector2( 144, -1247 )
 duration = 56
 
 [node name="Candle17" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 83, -1480 )
+position = Vector2( 82, -1488 )
 duration = 29
 
 [node name="Candle18" parent="Candles" instance=ExtResource( 5 )]
@@ -141,18 +181,18 @@ duration = 76
 position = Vector2( 19, -1649 )
 
 [node name="Candle21" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 404, -1409 )
+position = Vector2( 403, -1423 )
 
 [node name="Candle23" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 387, -1658 )
+position = Vector2( 387, -1664 )
 duration = 80
 
 [node name="Candle24" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 48, -1776 )
+position = Vector2( 49.0001, -1789 )
 duration = 53
 
 [node name="Candle25" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 372, -1793 )
+position = Vector2( 369, -1807 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
