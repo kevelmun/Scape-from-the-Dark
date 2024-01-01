@@ -42,3 +42,8 @@ func _on_Bulb2_time_left_for_flashing(time_left):
 	else:
 		$FlashTimer.visible = false
 		$FlashTimer/Label.set_text("El bombillo empieza a parpadear en: 5")
+
+
+func _on_Door_level_passed():
+	$LevelInfo.visible = true
+	$LevelInfo/Label.set_text("Nivel superado!")

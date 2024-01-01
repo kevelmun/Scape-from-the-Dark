@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/HUD/sprite-fuel-bar.png" type="Texture" id=1]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
@@ -59,6 +59,8 @@ size = 25
 outline_size = 1
 outline_color = Color( 0.223529, 0.203922, 0.203922, 1 )
 font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=16]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -153,6 +155,21 @@ margin_bottom = 32.0
 custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
 custom_fonts/font = SubResource( 15 )
 text = "El bombillo empieza a parpadear en: 5"
+align = 1
+valign = 1
+
+[node name="LevelInfo" type="Panel" parent="."]
+margin_left = 329.0
+margin_top = 63.0
+margin_right = 699.0
+margin_bottom = 103.0
+custom_styles/panel = SubResource( 16 )
+
+[node name="Label" type="Label" parent="LevelInfo"]
+margin_left = -1.0
+margin_right = 369.0
+margin_bottom = 40.0
+custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
 align = 1
 valign = 1
 

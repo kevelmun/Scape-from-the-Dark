@@ -181,6 +181,7 @@ pause_mode = 2
 position = Vector2( 219, 60 )
 shape = SubResource( 7 )
 
+[connection signal="level_passed" from="Door" to="HUD" method="_on_Door_level_passed"]
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]
 [connection signal="light_bulb_on" from="Bulb2" to="." method="_on_Bulb2_light_bulb_on"]
 [connection signal="time_left_for_flashing" from="Bulb2" to="HUD" method="_on_Bulb2_time_left_for_flashing"]
