@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resources/HUD/sprite-fuel-bar.png" type="Texture" id=1]
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=2]
@@ -49,6 +49,15 @@ fill_from = Vector2( 0.995833, 0.666667 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 25
+outline_size = 1
+outline_color = Color( 0.223529, 0.203922, 0.203922, 1 )
 font_data = ExtResource( 3 )
 
 [node name="HUD" type="CanvasLayer"]
@@ -126,6 +135,24 @@ margin_bottom = 120.0
 custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
 custom_fonts/font = SubResource( 13 )
 text = "50/50"
+align = 1
+valign = 1
+
+[node name="FlashTimer" type="Panel" parent="."]
+margin_left = 352.0
+margin_top = 24.0
+margin_right = 683.0
+margin_bottom = 64.0
+custom_styles/panel = SubResource( 14 )
+
+[node name="Label" type="Label" parent="FlashTimer"]
+margin_left = -6.0
+margin_top = 8.0
+margin_right = 327.0
+margin_bottom = 32.0
+custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "El bombillo empieza a parpadear en: 5"
 align = 1
 valign = 1
 
