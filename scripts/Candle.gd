@@ -99,7 +99,8 @@ func light_candel():
 func extinguish_candel():
 	on = false
 	lightCandel.enabled = false
-	remove_from_group("CandlesOn")
+	if self.is_in_group("CandlesOn"):
+		remove_from_group("CandlesOn")
 
 # Cambiar el estado de la vela entre prendido y apagado
 func switch_candel():
