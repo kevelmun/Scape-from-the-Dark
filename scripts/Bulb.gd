@@ -2,7 +2,6 @@ extends Node2D
 
 signal light_bulb_off()
 signal light_bulb_on()
-signal time_left_for_flashing(time_left)
 
 onready var light = $Light2D
 onready var sprite = $AnimatedSprite
@@ -14,8 +13,7 @@ func _ready():
 	on_light_bulb()
 	
 func _physics_process(delta):
-	if flicker.time_left <= 5:
-		emit_signal("time_left_for_flashing", flicker.time_left)
+	pass
 
 # Enciende el bombillo
 func on_light_bulb():

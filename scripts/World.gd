@@ -41,6 +41,5 @@ func _manage_lose_attempt():
 	else:
 		#TODO: Agregar codigo para el gameover
 		get_tree().paused = not get_tree().paused
-		GameStatistics.player_attemps = 4
 		$HUD/GameOver.visible = true 
 		print("Valiste")
