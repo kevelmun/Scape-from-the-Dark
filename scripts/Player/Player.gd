@@ -154,7 +154,3 @@ func _lose_fuel(lose_value):
 	
 	# Si ya no hay combustible envia una señal que el jug. perdió
 	if fuel <= 0: emit_signal("lost_all_fuel")
-
-
-
-

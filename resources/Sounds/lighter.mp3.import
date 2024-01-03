@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lighter.mp3-415db5857d826ddb6b93e2689a83754a.mp3str"
+
+[deps]
+
+source_file="res://resources/Sounds/lighter.mp3"
+dest_files=[ "res://.import/lighter.mp3-415db5857d826ddb6b93e2689a83754a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

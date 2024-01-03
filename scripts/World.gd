@@ -13,7 +13,8 @@ func _physics_process(delta):
 	if not world_on and not player.in_safe_area:
 		# TODO: Manejar que acciones que se realizaran cuando el jugador no
 		# este en un area con luz
-		print("Jugador no se encuentra en el area segura")
+#		print("Jugador no se encuentra en el area segura")
+		pass
 		#_manage_lose_attempt()
 
 func _on_DropZone_body_entered(body):
