@@ -6,7 +6,7 @@ export onready var timeCounter = $TimerPanel/Timer
 onready var fuelBar = $FuelPanel/TextureProgress
 
 func _ready():
-	$FlashTimer.visible = false
+	pass
 	
 func _physics_process(delta):
 	_update_timer()
@@ -34,16 +34,3 @@ func increase_fuel_value(value):
 
 func _on_Player_reduce_fuel(value):
 	increase_fuel_value(value)
-
-func _on_Bulb2_time_left_for_flashing(time_left):
-	if time_left > 0:
-		$FlashTimer.visible = true
-		$FlashTimer/Label.set_text("El bombillo empieza a parpadear en: %d" % time_left)
-	else:
-		$FlashTimer.visible = false
-		$FlashTimer/Label.set_text("El bombillo empieza a parpadear en: 5")
-
-
-func _on_Door_level_passed():
-	$LevelInfo.visible = true
-	$LevelInfo/Label.set_text("Nivel superado!")

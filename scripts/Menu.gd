@@ -17,6 +17,7 @@ func _ready():
 
 
 func _on_StartGameButton_pressed():
+	GameStatistics.initialize_player_attemps()
 	get_tree().change_scene("res://scenes/Levels/Level1.tscn")
 
 
