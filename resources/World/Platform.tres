@@ -18,10 +18,10 @@ points = PoolVector2Array( 0, 15.4782, 96.9, 15.4782, 97, 33, 0, 33 )
 points = PoolVector2Array( 0, 5.00211, 96.673, 5.00211, 97, 21, 0, 21 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 0, 0, 99, 0, 99, 29, 0, 29 )
+points = PoolVector2Array( 0, 17.1194, 100, 17.1194, 100, 44, 0, 44 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
-points = PoolVector2Array( 0, 0, 96, 0, 96, 36, 0, 36 )
+points = PoolVector2Array( 0, 9.91953, 96, 9.91953, 96, 46, 0, 46 )
 
 [resource]
 1/name = "initial platform.png 1"
@@ -92,7 +92,7 @@ points = PoolVector2Array( 0, 0, 96, 0, 96, 36, 0, 36 )
 6/texture = ExtResource( 5 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 200, 15, 99, 29 )
+6/region = Rect2( 200, 2, 100, 44 )
 6/tile_mode = 0
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
@@ -113,7 +113,7 @@ points = PoolVector2Array( 0, 0, 96, 0, 96, 36, 0, 36 )
 7/texture = ExtResource( 5 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
-7/region = Rect2( 302, 12, 96, 36 )
+7/region = Rect2( 302, 2, 96, 46 )
 7/tile_mode = 0
 7/occluder_offset = Vector2( 0, 0 )
 7/navigation_offset = Vector2( 0, 0 )
