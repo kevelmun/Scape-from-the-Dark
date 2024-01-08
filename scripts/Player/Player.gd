@@ -32,6 +32,7 @@ signal lost_all_fuel()
 # Indica si la animacion de muerte termino de reproducirse
 signal death_signal()
 
+
 ## Obtener referencias a los nodos
 
 onready var animacion = $AnimationPlayer
@@ -129,7 +130,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		loseFuelTimer.stop()
 	
 	if anim_name == "Death":
-		get_tree().reload_current_scene()
+		emit_signal("death_signal")
 	
 
 func _on_AnimationPlayer_animation_started(anim_name):

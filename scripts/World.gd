@@ -30,6 +30,7 @@ func _on_DropZone_body_entered(body):
 # 	_manage_lose_attempt()
 
 func _on_Player_death_signal():
+	print("Fallaste 1s")
 	_manage_lose_attempt()
 
 func _on_HUD_attempt_timeout():

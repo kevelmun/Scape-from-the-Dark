@@ -45,7 +45,7 @@ scale = Vector2( 1, 1.69083 )
 texture = SubResource( 5 )
 
 [node name="flickerTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 7.0
 one_shot = true
 autostart = true
 

@@ -11,6 +11,7 @@ onready var waitFlicker = $waitFlickerTimer
 # Acciones al cargar la escena
 func _ready():
 	on_light_bulb()
+	flicker.start(7)
 	
 func _physics_process(delta):
 	pass

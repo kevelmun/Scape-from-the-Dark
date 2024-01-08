@@ -79,11 +79,9 @@ duration = 50
 
 [node name="Candle4" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 197, -321 )
-duration = 100
 
 [node name="Candle5" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 321, -113 )
-duration = 100
 
 [node name="Candle6" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 338, -393 )
@@ -95,7 +93,6 @@ duration = 80
 
 [node name="Candle8" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 407, -641 )
-duration = 100
 
 [node name="Candle9" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 150, -537 )
@@ -107,7 +104,6 @@ duration = 67
 
 [node name="Candle11" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 324, -847 )
-duration = 100
 
 [node name="Candle12" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 45, -826 )
@@ -143,11 +139,9 @@ duration = 76
 
 [node name="Candle20" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 19, -1649 )
-duration = 100
 
 [node name="Candle21" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 404, -1409 )
-duration = 100
 
 [node name="Candle23" parent="Candles" instance=ExtResource( 5 )]
 position = Vector2( 387, -1658 )
@@ -190,7 +184,7 @@ shape = SubResource( 7 )
 [connection signal="level_passed" from="Door" to="HUD" method="_on_Door_level_passed"]
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]
 [connection signal="light_bulb_on" from="Bulb2" to="." method="_on_Bulb2_light_bulb_on"]
-[connection signal="lost_all_fuel" from="Player" to="." method="_on_Player_lost_all_fuel"]
+[connection signal="death_signal" from="Player" to="." method="_on_Player_death_signal"]
 [connection signal="reduce_fuel" from="Player" to="HUD" method="_on_Player_reduce_fuel"]
 [connection signal="attempt_timeout" from="HUD" to="." method="_on_HUD_attempt_timeout"]
 [connection signal="body_entered" from="DropZone" to="." method="_on_DropZone_body_entered"]
