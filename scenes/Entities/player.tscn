@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://resources/character/New Version/Character SH Final.png" type="Texture" id=1]
+[ext_resource path="res://resources/character/New Version/Character SHF.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player/Movement.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=3]
 [ext_resource path="res://resources/Objects/Lights/round_light.png" type="Texture" id=4]
@@ -19,6 +19,23 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Death"
+length = 4.4
+step = 0.075
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.25, 2.4, 2.55, 2.625, 2.7, 2.925, 3.15, 3.45, 3.525, 3.825, 3.9, 3.975, 4.05, 4.125, 4.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -67,7 +84,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.800242, 0.850394, 0.900082, 0.950696, 1.0003, 1.30196, 2.30822, 4.3012, 4.39549, 6.30312, 6.40561 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56 ]
+"values": [ 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -147,7 +164,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 19, 20, 21, 22, 23, 24 ]
+"values": [ 26, 27, 28, 29, 30, 31 ]
 }
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -161,12 +178,13 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 19
-vframes = 3
+hframes = 26
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 anims/Crouch = SubResource( 5 )
+anims/Death = SubResource( 12 )
 anims/Fire = SubResource( 6 )
 anims/Fire_Start = SubResource( 8 )
 anims/Gesture_1 = SubResource( 9 )
@@ -197,6 +215,7 @@ shape = SubResource( 10 )
 
 [node name="LoseFuelTimer" type="Timer" parent="."]
 
+[connection signal="death_signal" from="." to="." method="_on_Player_death_signal"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
 [connection signal="area_entered" from="CandelsDetector" to="." method="_on_CandelsDetector_area_entered"]
