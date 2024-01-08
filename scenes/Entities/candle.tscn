@@ -165,7 +165,6 @@ vframes = 2
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 0, 22.8571 )
-scale = Vector2( 1, 1 )
 enabled = false
 texture = ExtResource( 2 )
 texture_scale = 0.25

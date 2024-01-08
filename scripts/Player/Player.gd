@@ -21,13 +21,16 @@ var n_jump = 0
 var suelo = true
 # Lista para almacenar las interacciones cercanas
 var _all_interactions = []
-
+# Variable de estado de muerte
+var death = false;
 ## Señales
 
 # Indica que el jugador ha perdido (value) puntos de combutible
 signal reduce_fuel(value)
 # Indica que el jugador ha perdido todo su combutible
 signal lost_all_fuel()
+# Indica si la animacion de muerte termino de reproducirse
+signal death_signal()
 
 ## Obtener referencias a los nodos
 
@@ -36,8 +39,14 @@ onready var sprite = $Sprite
 onready var light2d = $Light2D
 onready var loseFuelTimer = $LoseFuelTimer
 
+
+
 func _physics_process(delta):
-	
+	# Morir
+	if death:
+		animacion.play("Death")
+		return
+
 	# Movimiento horizontal
 	if Input.is_action_pressed("button_d") and not Input.is_action_pressed("button_s"):
 		sprite.flip_h = false
@@ -75,9 +84,6 @@ func _physics_process(delta):
 			n_jump += 1
 			
 	
-
-
-
 	# Agacharse
 	if Input.is_action_pressed("button_s") and is_on_floor():
 		light2d.enabled = false
@@ -90,12 +96,15 @@ func _physics_process(delta):
 
 	# Prender fuego
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		if not fire_on:
+		if (not fire_on) and (fuel > 0):
 			animacion.play("Fire_Start")
 			fire_on = true
 	elif not Input.is_action_pressed("ui_accept"):
 		fire_on = false
 		light2d.enabled = false
+
+
+	
 
 	# Aplicar gravedad
 	velocidad.y += GRAVEDAD 
@@ -118,6 +127,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	# 	loseFuelTimer.start(1)
 	if anim_name == "Fire" and fire_on:
 		loseFuelTimer.stop()
+	
+	if anim_name == "Death":
+		get_tree().reload_current_scene()
 	
 
 func _on_AnimationPlayer_animation_started(anim_name):
@@ -156,5 +168,11 @@ func _lose_fuel(lose_value):
 	if fuel <= 0: emit_signal("lost_all_fuel")
 
 
+func _death():
+	if not fire_on:
+		death = true
+	
+	
+	
 
 

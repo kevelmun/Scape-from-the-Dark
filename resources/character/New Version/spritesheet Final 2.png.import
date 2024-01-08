@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CharacterSH-nopadding.png-3e4dd5182d6a19ef852da6dc150bcf98.stex"
+path="res://.import/spritesheet Final 2.png-5cb3850125c508ea485facda04e479be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/character/New Version/CharacterSH-nopadding.png"
-dest_files=[ "res://.import/CharacterSH-nopadding.png-3e4dd5182d6a19ef852da6dc150bcf98.stex" ]
+source_file="res://resources/character/New Version/spritesheet Final 2.png"
+dest_files=[ "res://.import/spritesheet Final 2.png-5cb3850125c508ea485facda04e479be.stex" ]
 
 [params]
 
