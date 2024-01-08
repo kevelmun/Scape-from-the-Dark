@@ -8,8 +8,6 @@ export var duration = 100
 # Variable controlador de encendido
 var on = false
 
-
-
 onready var lightCandel = $Light2D
 onready var sprite = $Sprite
 onready var animacion = $AnimationPlayer
@@ -99,7 +97,13 @@ func light_candel():
 func extinguish_candel():
 	on = false
 	lightCandel.enabled = false
-	remove_from_group("CandlesOn")
+	if self.is_in_group("CandlesOn"):
+		remove_from_group("CandlesOn")
+	
+	for body in $CandelArea.get_overlapping_bodies():
+		if body.get_name() == "Player":
+			body.in_safe_area = false
+
 
 # Cambiar el estado de la vela entre prendido y apagado
 func switch_candel():
@@ -112,10 +116,10 @@ func switch_candel():
 func update_state_safe_area_player(body, value):
 	if body.get_name() == "Player" and on:
 		body.in_safe_area = value
-		print("Player in safe area: ", body.in_safe_area)
 
 func _on_CandelArea_body_entered(body):
 	update_state_safe_area_player(body, true)
 
 func _on_CandelArea_body_exited(body):
+
 	update_state_safe_area_player(body, false)
