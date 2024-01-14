@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://resources/character/New Version/Character SHF.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player/Movement.gd" type="Script" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://resources/Objects/Lights/round_light.png" type="Texture" id=4]
 [ext_resource path="res://resources/Sounds/walk_sound.mp3" type="AudioStream" id=5]
 [ext_resource path="res://resources/Sounds/jump.mp3" type="AudioStream" id=6]
+[ext_resource path="res://resources/Sounds/lighter.mp3" type="AudioStream" id=7]
 [ext_resource path="res://resources/Sounds/match-lighting-candle.mp3" type="AudioStream" id=8]
+[ext_resource path="res://resources/Sounds/fail_sound.mp3" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=5]
 resource_name = "Crouch"
@@ -40,6 +42,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103 ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("SoundsEffects")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 0.225 )
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Fire"
@@ -58,18 +74,30 @@ tracks/0/keys = {
 "values": [ 13, 14 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("LighterSounds")
+tracks/1/path = NodePath("SoundsEffects")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 0.765306,
-"start_offset": 0.25,
-"stream": ExtResource( 8 )
+"end_offset": 1.90687,
+"start_offset": 0.5,
+"stream": ExtResource( 7 )
 } ],
 "times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SoundsEffects:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -10.0, -10.0 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -88,18 +116,30 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("LighterSounds")
+tracks/1/path = NodePath("SoundsEffects")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 1.06224,
-"start_offset": 0.06,
+"end_offset": 1.04529,
+"start_offset": 0.0,
 "stream": ExtResource( 8 )
 } ],
-"times": PoolRealArray( 0.1 )
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SoundsEffects:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -10.0, -10.0 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -151,7 +191,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("MovementSounds")
+tracks/1/path = NodePath("SoundsEffects")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -163,6 +203,18 @@ tracks/1/keys = {
 "stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0.1 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SoundsEffects:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -20.0, -15.0 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -180,7 +232,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("LighterSounds")
+tracks/1/path = NodePath("SoundsEffects")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -192,6 +244,18 @@ tracks/1/keys = {
 "stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SoundsEffects:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, -15.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -207,6 +271,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SoundsEffects:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -10.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -226,22 +302,34 @@ tracks/0/keys = {
 "values": [ 26, 27, 28, 29, 30, 31 ]
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("MovementSounds")
+tracks/1/path = NodePath("SoundsEffects")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 0.544556,
+"end_offset": 0.532562,
 "start_offset": 0.08,
 "stream": ExtResource( 5 )
 }, {
-"end_offset": 0.14943,
+"end_offset": 0.13708,
 "start_offset": 0.48,
 "stream": ExtResource( 5 )
 } ],
-"times": PoolRealArray( 0.2, 0.5 )
+"times": PoolRealArray( 0.1, 0.4 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SoundsEffects:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -10.0, -10.0 ]
 }
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -292,17 +380,10 @@ shape = SubResource( 10 )
 
 [node name="LoseFuelTimer" type="Timer" parent="."]
 
-[node name="LighterSounds" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-
-[node name="MovementSounds" type="AudioStreamPlayer" parent="."]
-volume_db = -15.0
-
-[node name="LighterSounds" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-
-[node name="MovementSounds" type="AudioStreamPlayer" parent="."]
-volume_db = -15.0
+[node name="SoundsEffects" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+bus = "SFX"
 
 [connection signal="death_signal" from="." to="." method="_on_Player_death_signal"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
