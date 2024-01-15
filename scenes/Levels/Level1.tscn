@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
 [ext_resource path="res://resources/Sounds/Fiverr_8bits_elixmc_encendedor.wav" type="AudioStream" id=3]
+[ext_resource path="res://scenes/UI/Instructions.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Entities/candle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/World/BackGround.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Entities/door.tscn" type="PackedScene" id=7]
@@ -175,6 +176,8 @@ drag_margin_h_enabled = true
 
 [node name="GameOver" parent="HUD" instance=ExtResource( 9 )]
 pause_mode = 2
+
+[node name="Control" parent="HUD" instance=ExtResource( 4 )]
 
 [node name="DropZone" type="Area2D" parent="."]
 
