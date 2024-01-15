@@ -22,12 +22,6 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 32
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=2]
 size = 32
 outline_size = 2
@@ -66,6 +60,12 @@ extra_spacing_char = 1
 extra_spacing_space = 1
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
 [node name="Control" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -95,42 +95,37 @@ margin_bottom = 197.0
 custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 610.0
+margin_right = 598.0
 margin_bottom = 60.0
 custom_fonts/font = SubResource( 4 )
 text = "Instrucciones"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer4" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 80.0
-margin_right = 610.0
+margin_right = 598.0
 margin_bottom = 151.0
-size_flags_horizontal = 3
-custom_constants/separation = 40
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer4"]
+margin_right = 598.0
+margin_bottom = 41.0
+custom_constants/separation = 60
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 27.0
-margin_top = 22.0
-margin_right = 159.0
-margin_bottom = 48.0
-custom_fonts/font = SubResource( 5 )
-text = "Movimiento:"
-
-[node name="Izquierda" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 199.0
-margin_right = 307.0
-margin_bottom = 71.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Izquierda"]
-margin_right = 108.0
+[node name="Izquierda3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer4/VBoxContainer2"]
+margin_left = 133.0
+margin_right = 267.0
 margin_bottom = 41.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda3"]
+margin_right = 134.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 custom_constants/separation = 7
 alignment = 1
 
-[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer/Izquierda/HBoxContainer"]
+[node name="Akey2" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda3/HBoxContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
 custom_fonts/font = SubResource( 2 )
@@ -139,47 +134,19 @@ text = " A "
 align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Izquierda/HBoxContainer"]
+[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda3/HBoxContainer"]
 margin_left = 47.0
-margin_top = 7.0
-margin_right = 59.0
-margin_bottom = 33.0
-custom_fonts/font = SubResource( 6 )
-text = "o"
-align = 1
-valign = 1
-
-[node name="LeftKey" type="Label" parent="VBoxContainer/HBoxContainer/Izquierda/HBoxContainer"]
-margin_left = 66.0
-margin_right = 107.0
-margin_bottom = 41.0
-custom_fonts/font = SubResource( 7 )
+margin_right = 87.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
-text = " ← "
+text = " S "
 align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Izquierda"]
-margin_top = 45.0
-margin_right = 108.0
-margin_bottom = 71.0
-custom_fonts/font = SubResource( 6 )
-text = "Izquierda"
-align = 1
-valign = 1
-
-[node name="Derecha" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 347.0
-margin_right = 454.0
-margin_bottom = 71.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Derecha"]
-margin_right = 107.0
-margin_bottom = 41.0
-custom_constants/separation = 7
-
-[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer/Derecha/HBoxContainer"]
-margin_right = 40.0
+[node name="Akey3" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda3/HBoxContainer"]
+margin_left = 94.0
+margin_right = 134.0
 margin_bottom = 40.0
 custom_fonts/font = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
@@ -187,19 +154,51 @@ text = " D "
 align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Derecha/HBoxContainer"]
-margin_left = 47.0
-margin_top = 7.0
-margin_right = 59.0
-margin_bottom = 33.0
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda3"]
+visible = false
+margin_top = 44.0
+margin_right = 134.0
+margin_bottom = 70.0
 custom_fonts/font = SubResource( 6 )
-text = "o"
+text = "Opcion 1"
 align = 1
 valign = 1
 
-[node name="RightKey" type="Label" parent="VBoxContainer/HBoxContainer/Derecha/HBoxContainer"]
-margin_left = 66.0
-margin_right = 107.0
+[node name="Izquierda2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer4/VBoxContainer2"]
+margin_left = 327.0
+margin_right = 464.0
+margin_bottom = 41.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda2"]
+margin_right = 137.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+custom_constants/separation = 7
+alignment = 1
+
+[node name="Akey2" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda2/HBoxContainer"]
+margin_right = 41.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 435, 301 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+text = " ← "
+align = 1
+valign = 1
+
+[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda2/HBoxContainer"]
+margin_left = 48.0
+margin_right = 89.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+text = " ↓ "
+align = 1
+valign = 1
+
+[node name="Akey3" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda2/HBoxContainer"]
+margin_left = 96.0
+margin_right = 137.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 7 )
 custom_styles/normal = SubResource( 3 )
@@ -207,25 +206,61 @@ text = " → "
 align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Derecha"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer2/Izquierda2"]
+visible = false
 margin_top = 45.0
-margin_right = 107.0
+margin_right = 137.0
 margin_bottom = 71.0
 custom_fonts/font = SubResource( 6 )
-text = "Derecha"
+text = "Opcion 1"
 align = 1
 valign = 1
 
-[node name="Salto" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 494.0
-margin_right = 582.0
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_top = 45.0
+margin_right = 598.0
 margin_bottom = 71.0
+custom_fonts/font = SubResource( 5 )
+text = "Movimiento del jugador"
+align = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Salto"]
-margin_right = 88.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 171.0
+margin_right = 598.0
+margin_bottom = 241.0
+size_flags_horizontal = 3
+custom_constants/separation = 60
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 141.0
+margin_right = 309.0
+margin_bottom = 70.0
+
+[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_right = 168.0
 margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = " Shift "
+align = 1
+valign = 1
 
-[node name="SpaceKey" type="Label" parent="VBoxContainer/HBoxContainer/Salto/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 44.0
+margin_right = 168.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 5 )
+text = "Encender fuego"
+align = 1
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 369.0
+margin_right = 457.0
+margin_bottom = 70.0
+
+[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 margin_right = 88.0
 margin_bottom = 40.0
 custom_fonts/font = SubResource( 2 )
@@ -234,73 +269,66 @@ text = " Space "
 align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Salto"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2"]
 margin_top = 44.0
 margin_right = 88.0
 margin_bottom = 70.0
-custom_fonts/font = SubResource( 6 )
-text = "Salto"
+custom_fonts/font = SubResource( 5 )
+text = "Saltar"
 align = 1
 valign = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 171.0
-margin_right = 610.0
-margin_bottom = 211.0
-size_flags_horizontal = 3
-custom_constants/separation = 40
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 261.0
+margin_right = 598.0
+margin_bottom = 317.0
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
-margin_top = 7.0
-margin_right = 168.0
-margin_bottom = 33.0
-custom_fonts/font = SubResource( 5 )
-text = "Encender vela:"
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_right = 598.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 6 )
+text = "Ponte alerta cuando el foco parpadea,"
+align = 1
+valign = 1
 
-[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 208.0
-margin_right = 248.0
-margin_bottom = 40.0
-custom_fonts/font = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-text = " F "
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 598.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 6 )
+text = "NO dejes que la obscuridad te atrape."
 align = 1
 valign = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 231.0
-margin_right = 610.0
-margin_bottom = 345.0
+margin_top = 337.0
+margin_right = 598.0
+margin_bottom = 377.0
 size_flags_horizontal = 3
-custom_constants/separation = 10
+alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
-margin_top = 44.0
-margin_right = 60.0
-margin_bottom = 70.0
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 59.0
+margin_top = 7.0
+margin_right = 167.0
+margin_bottom = 33.0
 custom_fonts/font = SubResource( 5 )
-text = "Tips:"
+text = "Preciona "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
-margin_left = 70.0
-margin_right = 610.0
-margin_bottom = 114.0
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
-margin_right = 540.0
-margin_bottom = 55.0
-custom_fonts/font = SubResource( 6 )
-text = "* Recuerda si quieres llegar mas alto intenta
- saltar 2 veces."
+[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 171.0
+margin_right = 259.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = " Intro "
 align = 1
 valign = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
-margin_top = 59.0
-margin_right = 540.0
-margin_bottom = 114.0
-custom_fonts/font = SubResource( 6 )
-text = "* Intentar tocar otras teclas, tal vez
-logres encontrar algo..."
-align = 1
-valign = 1
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 263.0
+margin_top = 7.0
+margin_right = 539.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 5 )
+text = " para iniciar el juego."

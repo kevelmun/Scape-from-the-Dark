@@ -1,17 +1,17 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().paused = true
+	if !GameStatistics.instruction_showed:
+		get_tree().paused = true
+		visible = true
+	else:
+		visible = false
 
 func _input(event):
-	if event.is_action_pressed("button_w"):
+	if event.is_action_pressed("ui_accept"):
+		GameStatistics.instruction_showed = true
 		print("Pausado")
 		visible = false
 		get_tree().paused = false
