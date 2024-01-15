@@ -103,6 +103,7 @@ func _physics_process(delta):
 	elif not Input.is_action_pressed("ui_accept"):
 		fire_on = false
 		light2d.enabled = false
+		$SoundsEffects.stop()
 
 
 	
@@ -121,11 +122,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		animacion.play("Fire")
 		# Quitamos la cantidad de combustible al encender la chispa
 		_lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)
-		
-	# 	# Verificamos si hay velas para encender
-	# 	_light_candel()
-	# 	# Iniciamos un timer que se ejecuta cada seg. que presionamos el boton
-	# 	loseFuelTimer.start(1)
 	if anim_name == "Fire" and fire_on:
 		loseFuelTimer.stop()
 	
@@ -135,7 +131,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	if anim_name == "Fire" and fire_on:
-		print("CONSUME COMBUSTIBLE")
 		# Verificamos si hay velas para encender
 		_light_candel()
 		# Iniciamos un timer que se ejecuta cada seg. que presionamos el boton
@@ -167,7 +162,6 @@ func _lose_fuel(lose_value):
 	
 	# Si ya no hay combustible envia una señal que el jug. perdió
 	if fuel <= 0: emit_signal("lost_all_fuel")
-
 
 func _death():
 	if not fire_on:

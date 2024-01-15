@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
 [ext_resource path="res://resources/World/New Version/FinalDoor.png" type="Texture" id=3]
+[ext_resource path="res://resources/Sounds/Fiverr_8bits_elixmc_encendedor.wav" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Entities/candle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/World/BackGround.png" type="Texture" id=6]
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=8]
@@ -220,8 +221,15 @@ pause_mode = 2
 position = Vector2( 219, 60 )
 shape = SubResource( 7 )
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true
+bus = "Music"
+
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]
 [connection signal="light_bulb_on" from="Bulb2" to="." method="_on_Bulb2_light_bulb_on"]
+[connection signal="death_signal" from="Player" to="." method="_on_Player_death_signal"]
 [connection signal="lost_all_fuel" from="Player" to="." method="_on_Player_lost_all_fuel"]
 [connection signal="reduce_fuel" from="Player" to="HUD" method="_on_Player_reduce_fuel"]
 [connection signal="attempt_timeout" from="HUD" to="." method="_on_HUD_attempt_timeout"]

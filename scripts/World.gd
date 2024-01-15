@@ -16,24 +16,24 @@ func _process(delta):
 		once = true
 		# TODO: Manejar que acciones que se realizaran cuando el jugador no
 		# este en un area con luz
-		print("Jugador no se encuentra en el area segura")
+		
 		player._death()
-
-	# if (world_on and once) or (player.in_safe_area and once):
-	# 	once = false
-	# 	print("Reseteo de once")
+		if not player.fire_on:
+			$Music.stop()
+			
 
 func _on_DropZone_body_entered(body):
-	_manage_lose_attempt()
+	$Music.stop()
+	player._death()
 
 # func _on_Player_lost_all_fuel():
 # 	_manage_lose_attempt()
 
-func _on_Player_death_signal():
-	print("Fallaste 1s")
-	_manage_lose_attempt()
-
 func _on_HUD_attempt_timeout():
+	$Music.stop()
+	player._death()
+
+func _on_Player_death_signal():
 	_manage_lose_attempt()
 
 func _on_Bulb2_light_bulb_off():
@@ -48,7 +48,6 @@ func _manage_lose_attempt():
 	# Verificar si quedan intentos
 	if GameStatistics.player_attemps > 0:
 		# TODO: Agregar codigo al perder el intento
-		
 		get_tree().reload_current_scene()
 	else:
 		#TODO: Agregar codigo para el gameover
