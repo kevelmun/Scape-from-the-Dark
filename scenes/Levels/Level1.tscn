@@ -188,7 +188,7 @@ shape = SubResource( 7 )
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 3 )
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [connection signal="level_passed" from="Door" to="HUD" method="_on_Door_level_passed"]
