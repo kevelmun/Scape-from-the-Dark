@@ -1,0 +1,306 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://resources/Fonts/monogram.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resources/Fonts/NotoSansJP-Black.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/Instructions.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.329412, 0.309804, 0.309804, 0.788235 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=4]
+size = 75
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = 5
+extra_spacing_bottom = 5
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.92549, 0.92549, 0.92549, 0.231373 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = 2
+extra_spacing_bottom = 2
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -327.0
+margin_top = -221.0
+margin_right = 327.0
+margin_bottom = 221.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -299.0
+margin_top = -197.0
+margin_right = 299.0
+margin_bottom = 197.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 610.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 4 )
+text = "Instrucciones"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 80.0
+margin_right = 610.0
+margin_bottom = 151.0
+size_flags_horizontal = 3
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 27.0
+margin_top = 22.0
+margin_right = 159.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 5 )
+text = "Movimiento:"
+
+[node name="Izquierda" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 199.0
+margin_right = 307.0
+margin_bottom = 71.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Izquierda"]
+margin_right = 108.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+custom_constants/separation = 7
+alignment = 1
+
+[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer/Izquierda/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = " A "
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Izquierda/HBoxContainer"]
+margin_left = 47.0
+margin_top = 7.0
+margin_right = 59.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 6 )
+text = "o"
+align = 1
+valign = 1
+
+[node name="LeftKey" type="Label" parent="VBoxContainer/HBoxContainer/Izquierda/HBoxContainer"]
+margin_left = 66.0
+margin_right = 107.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+text = " ← "
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Izquierda"]
+margin_top = 45.0
+margin_right = 108.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 6 )
+text = "Izquierda"
+align = 1
+valign = 1
+
+[node name="Derecha" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 347.0
+margin_right = 454.0
+margin_bottom = 71.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Derecha"]
+margin_right = 107.0
+margin_bottom = 41.0
+custom_constants/separation = 7
+
+[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer/Derecha/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = " D "
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Derecha/HBoxContainer"]
+margin_left = 47.0
+margin_top = 7.0
+margin_right = 59.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 6 )
+text = "o"
+align = 1
+valign = 1
+
+[node name="RightKey" type="Label" parent="VBoxContainer/HBoxContainer/Derecha/HBoxContainer"]
+margin_left = 66.0
+margin_right = 107.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+text = " → "
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Derecha"]
+margin_top = 45.0
+margin_right = 107.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 6 )
+text = "Derecha"
+align = 1
+valign = 1
+
+[node name="Salto" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 494.0
+margin_right = 582.0
+margin_bottom = 71.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Salto"]
+margin_right = 88.0
+margin_bottom = 40.0
+
+[node name="SpaceKey" type="Label" parent="VBoxContainer/HBoxContainer/Salto/HBoxContainer"]
+margin_right = 88.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = " Space "
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Salto"]
+margin_top = 44.0
+margin_right = 88.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 6 )
+text = "Salto"
+align = 1
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 171.0
+margin_right = 610.0
+margin_bottom = 211.0
+size_flags_horizontal = 3
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_top = 7.0
+margin_right = 168.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 5 )
+text = "Encender vela:"
+
+[node name="Akey" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 208.0
+margin_right = 248.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = " F "
+align = 1
+valign = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 231.0
+margin_right = 610.0
+margin_bottom = 345.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_top = 44.0
+margin_right = 60.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 5 )
+text = "Tips:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 70.0
+margin_right = 610.0
+margin_bottom = 114.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+margin_right = 540.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 6 )
+text = "* Recuerda si quieres llegar mas alto intenta
+ saltar 2 veces."
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+margin_top = 59.0
+margin_right = 540.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 6 )
+text = "* Intentar tocar otras teclas, tal vez
+logres encontrar algo..."
+align = 1
+valign = 1
