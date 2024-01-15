@@ -187,8 +187,8 @@ shape = SubResource( 7 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -10.0
 autoplay = true
+bus = "Background"
 
 [connection signal="level_passed" from="Door" to="HUD" method="_on_Door_level_passed"]
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]

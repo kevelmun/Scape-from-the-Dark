@@ -14,10 +14,6 @@ config/name="SFTD"
 run/main_scene="res://scenes/UI/MainMenu.tscn"
 config/icon="res://icon.png"
 
-[audio]
-
-default_bus_layout=""
-
 [autoload]
 
 GameStatistics="*res://scripts/GameStatistics.gd"
