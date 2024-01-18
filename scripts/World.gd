@@ -18,22 +18,18 @@ func _process(delta):
 		# este en un area con luz
 		
 		player._death()
-		if not player.fire_on:
-			$Music.stop()
-			
 
 func _on_DropZone_body_entered(body):
-	$Music.stop()
 	player._death()
 
 # func _on_Player_lost_all_fuel():
 # 	_manage_lose_attempt()
 
 func _on_HUD_attempt_timeout():
-	$Music.stop()
 	player._death()
 
 func _on_Player_death_signal():
+	$Music.stop()
 	_manage_lose_attempt()
 
 func _on_Bulb2_light_bulb_off():

@@ -323,7 +323,6 @@ shape = SubResource( 10 )
 [node name="SoundsEffects" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -10.0
-bus = "SFX"
 
 [connection signal="death_signal" from="." to="." method="_on_Player_death_signal"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

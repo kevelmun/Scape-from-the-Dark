@@ -137,12 +137,14 @@ func _on_AnimationPlayer_animation_started(anim_name):
 		loseFuelTimer.start(1)
 
 func _on_CandelsDetector_area_entered(area):
-	var curr_node = area.get_parent()
-	if "Candle" in curr_node.get_name():
-		_all_interactions.insert(0, curr_node)
+	if area.get_name() == "CandleLightingArea":
+		var curr_node = area.get_parent()
+		if "Candle" in curr_node.get_name():
+			_all_interactions.insert(0, curr_node)
 
 func _on_CandelsDetector_area_exited(area):
-	_all_interactions.erase(area.get_parent())
+	if area.get_name() == "CandleLightingArea":
+		_all_interactions.erase(area.get_parent())
 
 func _on_LoseFuelTimer_timeout():
 	if fire_on: _lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)	
@@ -153,7 +155,7 @@ func _light_candel():
 		var curr_interaction = _all_interactions[0]
 		if curr_interaction && ! curr_interaction.on:
 			curr_interaction.light_candel()
-			curr_interaction.update_state_safe_area_player(self, true)
+			self.in_safe_area = true
 
 # Maneja la perdida de combustible del jugador
 func _lose_fuel(lose_value):
