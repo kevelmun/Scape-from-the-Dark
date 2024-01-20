@@ -117,7 +117,9 @@ func switch_candel():
 func _on_CandleSafeArea_body_entered(body):
 	if body.get_name() == "Player" and on:
 		body.in_safe_area = true
+		print("Player in safe area: ", body.in_safe_area)
 
 func _on_CandleSafeArea_body_exited(body):
 	if body.get_name() == "Player" and on:
 		body.in_safe_area = false
+		print("Player in safe area: ", body.in_safe_area)

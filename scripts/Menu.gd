@@ -17,7 +17,8 @@ func _ready():
 
 
 func _on_StartGameButton_pressed():
-	GameStatistics.initialize_player_attemps()
+	PlayerStatitics.attemps = 4
+	PlayerStatitics.max_fuel_capability = 10
 	get_tree().change_scene("res://scenes/Levels/Level1.tscn")
 
 
