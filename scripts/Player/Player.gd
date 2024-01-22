@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 # Definir las constantes para el movimiento
 const VELOCIDAD = 200
@@ -6,8 +7,10 @@ const FUERZA_SALTO = -400
 const FUERZA_SALTO_DOBLE = -450
 const GRAVEDAD = 22
 const MAX_SALTOS = 2
+
 # Estadisticas del jugador
-export var fuel = 20
+var fuel
+var stats
 
 # Definir la velocidad inicial
 var velocidad = Vector2()
@@ -22,11 +25,14 @@ var suelo = true
 # Lista para almacenar las interacciones cercanas
 var _all_interactions = []
 # Variable de estado de muerte
-var death = false;
+var death = false
+var once_dead = false
 ## Señales
 
 # Indica que el jugador ha perdido (value) puntos de combutible
 signal reduce_fuel(value)
+# Indica que el jugador ha ganado (value) puntos de combutible
+signal add_fuel(value)
 # Indica que el jugador ha perdido todo su combutible
 signal lost_all_fuel()
 # Indica si la animacion de muerte termino de reproducirse
@@ -40,11 +46,16 @@ onready var sprite = $Sprite
 onready var light2d = $Light2D
 onready var loseFuelTimer = $LoseFuelTimer
 
-
+func _ready():
+	stats = PlayerStatitics
+	fuel = stats.max_fuel_capability
 
 func _physics_process(delta):
-	# Morir
+	# Si ya esta muerto el jugador no se hace nada mas
+	if once_dead: return
+	# Morir	
 	if death:
+		once_dead = true
 		animacion.play("Death")
 		return
 
@@ -121,13 +132,12 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		light2d.enabled = true
 		animacion.play("Fire")
 		# Quitamos la cantidad de combustible al encender la chispa
-		_lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)
+		lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)
 	if anim_name == "Fire" and fire_on:
 		loseFuelTimer.stop()
 	
 	if anim_name == "Death":
 		emit_signal("death_signal")
-	
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	if anim_name == "Fire" and fire_on:
@@ -147,7 +157,7 @@ func _on_CandelsDetector_area_exited(area):
 		_all_interactions.erase(area.get_parent())
 
 func _on_LoseFuelTimer_timeout():
-	if fire_on: _lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)	
+	if fire_on: lose_fuel(GameStatistics.FUEL_CONSUME_VALUE_FIRE)	
 
 # Enciende la vela mas cercana si es que la hay
 func _light_candel():
@@ -158,18 +168,24 @@ func _light_candel():
 			self.in_safe_area = true
 
 # Maneja la perdida de combustible del jugador
-func _lose_fuel(lose_value):
-	fuel -= lose_value
+func lose_fuel(lose_value):
+	fuel = fuel - lose_value if (fuel >= 0) else 0
 	emit_signal("reduce_fuel", lose_value)
 	
 	# Si ya no hay combustible envia una señal que el jug. perdió
 	if fuel <= 0: emit_signal("lost_all_fuel")
 
+func add_fuel(value):
+	var new_fuel_value_inc
+	
+	if (fuel + value) <= stats.max_fuel_capability:
+		new_fuel_value_inc =  value
+	else:
+		new_fuel_value_inc =  stats.max_fuel_capability - fuel
+	
+	fuel += new_fuel_value_inc
+	emit_signal("add_fuel", new_fuel_value_inc)
+
 func _death():
 	if not fire_on:
 		death = true
-	
-	
-	
-
-

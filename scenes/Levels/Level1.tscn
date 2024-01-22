@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
@@ -11,8 +11,10 @@
 [ext_resource path="res://scenes/UI/GameOver.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/UI/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Entities/player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Entities/Powerups/Fuel-Powerup.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Entities/wind.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Entities/bulb.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Entities/Powerups/Fuel-Capability-Powerup.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SegmentShape2D" id=5]
 a = Vector2( -34, -1952 )
@@ -158,7 +160,8 @@ position = Vector2( 372, -1793 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 47, -48 )
+pause_mode = 2
+position = Vector2( 47, -53 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 171, -53 )
@@ -186,13 +189,41 @@ position = Vector2( 219, 60 )
 shape = SubResource( 7 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 3 )
 autoplay = true
 bus = "Background"
 
+[node name="Powerups" type="Node2D" parent="."]
+
+[node name="Fuel-Powerup2" parent="Powerups" instance=ExtResource( 12 )]
+position = Vector2( 63, -364 )
+
+[node name="Fuel-Powerup4" parent="Powerups" instance=ExtResource( 12 )]
+position = Vector2( 40, -1298 )
+
+[node name="Fuel-Powerup5" parent="Powerups" instance=ExtResource( 12 )]
+position = Vector2( 172, -1584 )
+
+[node name="Fuel-Powerup7" parent="Powerups" instance=ExtResource( 12 )]
+position = Vector2( 321, -1777 )
+
+[node name="Fuel-Powerup6" parent="Powerups" instance=ExtResource( 12 )]
+position = Vector2( 205, -1086 )
+
+[node name="Fuel-Powerup3" parent="Powerups" instance=ExtResource( 12 )]
+position = Vector2( 146, -762 )
+
+[node name="Fuel-Powerup" parent="Powerups" instance=ExtResource( 12 )]
+position = Vector2( 44, -236 )
+
+[node name="Fuel-Capability-Powerup" parent="Powerups" instance=ExtResource( 15 )]
+position = Vector2( 283, -566 )
+
 [connection signal="level_passed" from="Door" to="HUD" method="_on_Door_level_passed"]
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]
 [connection signal="light_bulb_on" from="Bulb2" to="." method="_on_Bulb2_light_bulb_on"]
+[connection signal="add_fuel" from="Player" to="HUD" method="_on_Player_add_fuel"]
 [connection signal="death_signal" from="Player" to="." method="_on_Player_death_signal"]
 [connection signal="reduce_fuel" from="Player" to="HUD" method="_on_Player_reduce_fuel"]
 [connection signal="attempt_timeout" from="HUD" to="." method="_on_HUD_attempt_timeout"]

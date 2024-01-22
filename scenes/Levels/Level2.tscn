@@ -196,6 +196,7 @@ position = Vector2( 369, -1807 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
+pause_mode = 2
 position = Vector2( 47, -48 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -222,10 +223,10 @@ position = Vector2( 219, 60 )
 shape = SubResource( 7 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 4 )
 volume_db = -10.0
 autoplay = true
-bus = "Music"
 
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]
 [connection signal="light_bulb_on" from="Bulb2" to="." method="_on_Bulb2_light_bulb_on"]
