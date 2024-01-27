@@ -1,4 +1,5 @@
 extends Node
+class_name PlayerStats
 
 signal update_max_fuel_capability(value)
 
