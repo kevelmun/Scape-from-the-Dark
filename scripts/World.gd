@@ -10,6 +10,7 @@ func _ready():
 	get_tree().paused = false
 	
 	# Iniciamos todos los elementos del HUD
+	$HUD.update_level_info(get_tree().current_scene.name)
 	$HUD.update_attemps(player.stats.attemps)
 	$HUD.initialize_fuel_bar(player.fuel, player.stats.max_fuel_capability)
 	

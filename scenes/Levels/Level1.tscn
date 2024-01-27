@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/Entities/wind.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Entities/bulb.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/Entities/Powerups/Fuel-Capability-Powerup.tscn" type="PackedScene" id=15]
+[ext_resource path="res://TransitionScreen.tscn" type="PackedScene" id=16]
 
 [sub_resource type="SegmentShape2D" id=5]
 a = Vector2( -34, -1952 )
@@ -220,7 +221,8 @@ position = Vector2( 44, -236 )
 [node name="Fuel-Capability-Powerup" parent="Powerups" instance=ExtResource( 15 )]
 position = Vector2( 283, -566 )
 
-[connection signal="level_passed" from="Door" to="HUD" method="_on_Door_level_passed"]
+[node name="TransitionScreen" parent="." instance=ExtResource( 16 )]
+
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]
 [connection signal="light_bulb_on" from="Bulb2" to="." method="_on_Bulb2_light_bulb_on"]
 [connection signal="add_fuel" from="Player" to="HUD" method="_on_Player_add_fuel"]
@@ -228,3 +230,4 @@ position = Vector2( 283, -566 )
 [connection signal="reduce_fuel" from="Player" to="HUD" method="_on_Player_reduce_fuel"]
 [connection signal="attempt_timeout" from="HUD" to="." method="_on_HUD_attempt_timeout"]
 [connection signal="body_entered" from="DropZone" to="." method="_on_DropZone_body_entered"]
+[connection signal="transitioned" from="TransitionScreen" to="Door" method="_on_TransitionScreen_transitioned"]

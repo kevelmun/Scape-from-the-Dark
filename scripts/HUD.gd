@@ -4,6 +4,8 @@ signal attempt_timeout()
 
 export onready var timeCounter = $TimerPanel/Timer
 onready var fuelBar = $FuelPanel/TextureProgress
+export onready var levelInfo = $LevelInfo/Label
+onready var level = 0
 
 func _ready():
 	PlayerStatitics.connect("update_max_fuel_capability", self, "update_fuel_capability")
@@ -40,5 +42,6 @@ func update_fuel_capability(value):
 	fuelBar.max_value = value
 	$FuelPanel/Label.set_text("%d / %d" % [fuelBar.value, fuelBar.max_value])
 
-
-
+func update_level_info(value):
+	level = int(value) + 1
+	$LevelInfo/Label.set_text("Nivel #%d" % [level])
