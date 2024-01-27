@@ -10,7 +10,7 @@ const MAX_SALTOS = 2
 
 # Estadisticas del jugador
 var fuel
-var stats
+var stats: PlayerStats
 
 # Definir la velocidad inicial
 var velocidad = Vector2()
