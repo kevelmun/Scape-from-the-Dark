@@ -94,22 +94,6 @@ text = "Intentos: 4"
 align = 1
 valign = 1
 
-[node name="LevelInfo" type="Panel" parent="."]
-margin_left = 356.0
-margin_top = 8.0
-margin_right = 695.0
-margin_bottom = 46.0
-custom_styles/panel = SubResource( 8 )
-
-[node name="Label" type="Label" parent="LevelInfo"]
-margin_left = 125.0
-margin_top = 5.0
-margin_right = 221.0
-margin_bottom = 34.0
-custom_colors/font_color_shadow = Color( 0.862745, 0.52549, 0.0941176, 1 )
-custom_fonts/font = SubResource( 12 )
-text = "Nivel #1"
-
 [node name="FuelPanel" type="Panel" parent="."]
 margin_left = 896.0
 margin_top = 8.0

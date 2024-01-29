@@ -3,6 +3,7 @@ extends Node2D
 var world_on = true
 
 onready var player = $Player
+onready var fadeAnimPlayer = $FadeAnimPlayer
 # Variable que controla que la señal para morir no se ejecute repetidas veces
 var once = false
 
@@ -10,7 +11,6 @@ func _ready():
 	get_tree().paused = false
 	
 	# Iniciamos todos los elementos del HUD
-	$HUD.update_level_info(get_tree().current_scene.name)
 	$HUD.update_attemps(player.stats.attemps)
 	$HUD.initialize_fuel_bar(player.fuel, player.stats.max_fuel_capability)
 	
@@ -60,3 +60,10 @@ func _manage_lose_attempt():
 #		get_tree().paused = not get_tree().paused
 		$HUD/GameOver.visible = true 
 		print("Valiste")
+
+
+func _on_Door_player_reached_door(move_to_level):
+	fadeAnimPlayer.play("fade_in")
+	yield(fadeAnimPlayer, "animation_finished")
+	get_tree().change_scene(move_to_level)
+
