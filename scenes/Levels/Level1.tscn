@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/Entities/wind.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Entities/bulb.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/Entities/Powerups/Fuel-Capability-Powerup.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/UI/EndGame.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=8]
 length = 0.001
@@ -78,6 +79,7 @@ texture = ExtResource( 6 )
 
 [node name="Door" parent="." instance=ExtResource( 7 )]
 position = Vector2( 208, -1852 )
+NEXT_LEVEL = "res://scenes/UI/EndGame.tscn"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0980392, 0.0901961, 0.0901961, 1 )
@@ -201,7 +203,7 @@ position = Vector2( 372, -1793 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 224, -1697 )
+position = Vector2( 47, -48 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 171, -53 )
@@ -221,6 +223,8 @@ drag_margin_h_enabled = true
 pause_mode = 2
 
 [node name="Control" parent="HUD" instance=ExtResource( 4 )]
+
+[node name="EndGame" parent="HUD" instance=ExtResource( 16 )]
 
 [node name="DropZone" type="Area2D" parent="."]
 
