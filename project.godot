@@ -8,19 +8,38 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/Player/Player.gd"
+}, {
+"base": "Node",
+"class": "PlayerStats",
+"language": "GDScript",
+"path": "res://scripts/Globals/PlayerStatitics.gd"
+}, {
+"base": "Area2D",
+"class": "Powerup",
+"language": "GDScript",
+"path": "res://scripts/Powerups/Powerup.gd"
+} ]
+_global_script_class_icons={
+"Player": "",
+"PlayerStats": "",
+"Powerup": ""
+}
+
 [application]
 
 config/name="SFTD"
 run/main_scene="res://scenes/UI/MainMenu.tscn"
 config/icon="res://icon.png"
 
-[audio]
-
-default_bus_layout=""
-
 [autoload]
 
-GameStatistics="*res://scripts/GameStatistics.gd"
+PlayerStatitics="*res://scripts/Globals/PlayerStatitics.tscn"
+GameStatistics="*res://scripts/Globals/GameStatistics.gd"
 
 [display]
 

@@ -57,6 +57,7 @@ func _playAnimation(baseName: String):
 
 	# Asigna la nueva posición "Y" al Light2D
 	lightCandel.position.y = new_y
+	$CandleSafeArea.position.y = new_y
 
 
 func _candle_burning_out():
@@ -100,7 +101,7 @@ func extinguish_candel():
 	if self.is_in_group("CandlesOn"):
 		remove_from_group("CandlesOn")
 	
-	for body in $CandelArea.get_overlapping_bodies():
+	for body in $CandleSafeArea.get_overlapping_bodies():
 		if body.get_name() == "Player":
 			body.in_safe_area = false
 
@@ -112,14 +113,13 @@ func switch_candel():
 	else:
 		extinguish_candel()
 
-# Actualiza el estado del jugador para indicar si se encuentra en una area segura o no
-func update_state_safe_area_player(body, value):
+
+func _on_CandleSafeArea_body_entered(body):
 	if body.get_name() == "Player" and on:
-		body.in_safe_area = value
+		body.in_safe_area = true
+		print("Player in safe area: ", body.in_safe_area)
 
-func _on_CandelArea_body_entered(body):
-	update_state_safe_area_player(body, true)
-
-func _on_CandelArea_body_exited(body):
-
-	update_state_safe_area_player(body, false)
+func _on_CandleSafeArea_body_exited(body):
+	if body.get_name() == "Player" and on:
+		body.in_safe_area = false
+		print("Player in safe area: ", body.in_safe_area)

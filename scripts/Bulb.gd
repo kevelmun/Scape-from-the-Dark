@@ -28,8 +28,9 @@ func off_light_bulb():
 
 # Realiza un parpadeo de la luz del bombillo 4 veces despues de x seg.
 func _on_blinkTimer_timeout():
-	# Generamos un tiempo aleator. entre 10 a 15 seg.
-	var rnd_time = _get_random_switch_time()
+	# Verificamos el estado del foco y establecemos un valor umbral
+	var threshold = 0.2 if light.enabled else 0.5
+	var rnd_time;
 	
 	for n in 5:
 		if n % 2 == 0: off_light_bulb()
@@ -37,18 +38,20 @@ func _on_blinkTimer_timeout():
 		waitFlicker.start(0.2)
 		yield(waitFlicker, "timeout") # Esperamos 0.2 segundos
 	
+	print("Valor de umbral: ", threshold)
+	_random_bulb_state_by_threshold(threshold)
+	
 	# Al finalizar, reinicia el temporizador de parpadeo con x seg.
+	rnd_time = _get_random_switch_time()
 	print("La bombilla empieza a parpadear en: ", rnd_time)
 	flicker.start(rnd_time)
-	
-	_random_bulb_state()
 
 # De manera aleatoria cambiamos el estado de la bombilla
-func _random_bulb_state():
-	var random_num = randf()
+func _random_bulb_state_by_threshold(threshold):
+	var random_num = randf()	
 	print("Num. Aleatorio para apagado: ", random_num)
 	
-	if random_num <= 0.2:
+	if random_num <= threshold:
 		on_light_bulb()
 		emit_signal("light_bulb_on")
 	else:

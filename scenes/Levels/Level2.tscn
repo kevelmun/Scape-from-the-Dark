@@ -1,42 +1,18 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
-[ext_resource path="res://resources/World/New Version/FinalDoor.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Entities/door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/Sounds/Fiverr_8bits_elixmc_encendedor.wav" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Entities/candle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/World/BackGround.png" type="Texture" id=6]
+[ext_resource path="res://scenes/UI/EndGame.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI/PauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/UI/GameOver.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/UI/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Entities/player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Entities/wind.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Entities/bulb.tscn" type="PackedScene" id=14]
-
-[sub_resource type="GDScript" id=8]
-script/source = "extends Sprite
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 48.7821, 15.6633 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 13.75, 24 )
 
 [sub_resource type="SegmentShape2D" id=5]
 a = Vector2( -34, -1952 )
@@ -49,30 +25,16 @@ b = Vector2( 470, 48 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 249.5, 10 )
 
-[node name="world" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="BackGround" type="Sprite" parent="."]
 position = Vector2( 218, -952 )
 texture = ExtResource( 6 )
 
-[node name="FinalDoor" type="Sprite" parent="."]
-position = Vector2( 203.391, -1836.67 )
-texture = ExtResource( 3 )
-script = SubResource( 8 )
-
-[node name="Platform" type="StaticBody2D" parent="FinalDoor"]
-
-[node name="PlatformCollision" type="CollisionShape2D" parent="FinalDoor/Platform"]
-position = Vector2( 0.103226, 32.3323 )
-shape = SubResource( 4 )
-one_way_collision = true
-
-[node name="Door" type="Area2D" parent="FinalDoor"]
-
-[node name="Hitbox" type="CollisionShape2D" parent="FinalDoor/Door"]
-position = Vector2( 0.358994, -7.33105 )
-shape = SubResource( 9 )
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 208, -1852 )
+NEXT_LEVEL = "res://scenes/UI/EndGame.tscn"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0980392, 0.0901961, 0.0901961, 1 )
@@ -82,7 +44,7 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( -7274476, 6, 0, -7208960, 6, 0, -6946805, 4, 0, -6619138, 4, 0, -6684651, 7, 0, -6488056, 4, 0, -6094831, 5, 0, -5963774, 7, 0, -5701610, 6, 0, -5636086, 5, 0, -5308416, 6, 0, -5177327, 7, 0, -5046266, 4, 0, -4718574, 5, 0, -4653056, 6, 0, -4390902, 7, 0, -4128746, 5, 0, -3997697, 5, 0, -3801072, 6, 0, -3670009, 7, 0, -3538921, 7, 0, -3407855, 4, 0, -3211265, 5, 0, -3080186, 6, 0, -2818034, 4, 0, -2555881, 4, 0, -2424834, 4, 0, -2293745, 5, 0, -2097146, 7, 0, -2031594, 6, 0, -1703938, 6, 0, -1507310, 7, 0, -1441791, 5, 0, -1245175, 6, 0, -1048553, 5, 0, -917504, 7, 0, -917489, 4, 0, -720873, 6, 0, -655353, 5, 0, -393199, 4, 0, -65538, 1, 0 )
+tile_data = PoolIntArray( -7471094, 5, 0, -7274476, 6, 0, -7208960, 6, 0, -6946805, 4, 0, -6619138, 4, 0, -6684651, 7, 0, -6488056, 4, 0, -6094831, 5, 0, -5963774, 7, 0, -5701610, 6, 0, -5636086, 5, 0, -5308416, 6, 0, -5177327, 7, 0, -5046266, 4, 0, -4718574, 5, 0, -4653056, 6, 0, -4390902, 7, 0, -4128746, 5, 0, -3997697, 5, 0, -3801072, 6, 0, -3670009, 7, 0, -3538921, 7, 0, -3407855, 4, 0, -3211265, 5, 0, -3080186, 6, 0, -2818034, 4, 0, -2555881, 4, 0, -2424834, 4, 0, -2293745, 5, 0, -2097146, 7, 0, -2031594, 6, 0, -1703938, 6, 0, -1507310, 7, 0, -1441791, 5, 0, -1245175, 6, 0, -1048553, 5, 0, -917504, 7, 0, -917489, 4, 0, -720873, 6, 0, -655353, 5, 0, -393199, 4, 0, -65538, 1, 0 )
 
 [node name="Bulb2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 216, -1932 )
@@ -215,6 +177,8 @@ drag_margin_h_enabled = true
 [node name="GameOver" parent="HUD" instance=ExtResource( 9 )]
 pause_mode = 2
 
+[node name="EndGame" parent="HUD" instance=ExtResource( 7 )]
+
 [node name="DropZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropZone"]
@@ -222,15 +186,15 @@ position = Vector2( 219, 60 )
 shape = SubResource( 7 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 4 )
 volume_db = -10.0
 autoplay = true
-bus = "Music"
 
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]
 [connection signal="light_bulb_on" from="Bulb2" to="." method="_on_Bulb2_light_bulb_on"]
+[connection signal="add_fuel" from="Player" to="HUD" method="_on_Player_add_fuel"]
 [connection signal="death_signal" from="Player" to="." method="_on_Player_death_signal"]
-[connection signal="lost_all_fuel" from="Player" to="." method="_on_Player_lost_all_fuel"]
 [connection signal="reduce_fuel" from="Player" to="HUD" method="_on_Player_reduce_fuel"]
 [connection signal="attempt_timeout" from="HUD" to="." method="_on_HUD_attempt_timeout"]
 [connection signal="body_entered" from="DropZone" to="." method="_on_DropZone_body_entered"]

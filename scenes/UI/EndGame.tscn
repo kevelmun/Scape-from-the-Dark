@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/Fonts/monogram.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/EndGame.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="EndGame" type="Control"]
+input_pass_on_modal_close_click = false
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.329412, 0.309804, 0.309804, 0.788235 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 145.0
+margin_top = 119.0
+margin_right = 895.0
+margin_bottom = 481.0
+
+[node name="VBoxEndGameMessage" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 750.0
+margin_bottom = 159.0
+
+[node name="EndGameLabel" type="Label" parent="VBoxContainer/VBoxEndGameMessage"]
+margin_right = 750.0
+margin_bottom = 159.0
+custom_fonts/font = SubResource( 1 )
+text = "You Scaped"
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 163.0
+margin_right = 750.0
+margin_bottom = 281.0
+
+[node name="PlayAgainButton" type="Button" parent="VBoxContainer/Buttons"]
+margin_right = 750.0
+margin_bottom = 57.0
+custom_colors/font_color_focus = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+text = "Play Again"
+flat = true
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer/Buttons"]
+margin_top = 61.0
+margin_right = 750.0
+margin_bottom = 118.0
+custom_colors/font_color_focus = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.6, 0.352941, 0.231373, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+text = "Main Menu"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Buttons/PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

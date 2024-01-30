@@ -95,7 +95,6 @@ margin_right = 375.0
 margin_bottom = 46.0
 min_value = -50.0
 max_value = 0.0
-value = -15.0
 rounded = true
 
 [node name="BackButton" type="Button" parent="VBoxContainer/VBoxButtons"]

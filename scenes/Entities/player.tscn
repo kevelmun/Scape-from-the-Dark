@@ -87,18 +87,6 @@ tracks/1/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("SoundsEffects:volume_db")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -10.0, -10.0 ]
-}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Fire_Start"
@@ -128,18 +116,6 @@ tracks/1/keys = {
 "stream": ExtResource( 8 )
 } ],
 "times": PoolRealArray( 0 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("SoundsEffects:volume_db")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -10.0, -10.0 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -198,23 +174,11 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 0.0,
+"end_offset": 0.0315163,
 "start_offset": 0.0,
 "stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0.1 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("SoundsEffects:volume_db")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -20.0, -15.0 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -244,18 +208,6 @@ tracks/1/keys = {
 "stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("SoundsEffects:volume_db")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -15.0, -15.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -309,27 +261,15 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
-"end_offset": 0.532562,
+"end_offset": 0.547924,
 "start_offset": 0.08,
 "stream": ExtResource( 5 )
 }, {
-"end_offset": 0.13708,
+"end_offset": 0.145401,
 "start_offset": 0.48,
 "stream": ExtResource( 5 )
 } ],
 "times": PoolRealArray( 0.1, 0.4 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("SoundsEffects:volume_db")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -10.0, -10.0 ]
 }
 
 [sub_resource type="RectangleShape2D" id=1]
