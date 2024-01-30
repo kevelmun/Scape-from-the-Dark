@@ -57,10 +57,14 @@ func _manage_lose_attempt():
 		print("Valiste")
 
 
-func _on_Door_player_reached_door(move_to_level):
+func _on_Door_player_reached_door(move_to_level, is_final_screen):
 	fadeAnimPlayer.play("fade_in")
 	yield(fadeAnimPlayer, "animation_finished")
-	get_tree().change_scene(move_to_level)
+	if is_final_screen:
+		$HUD/EndGame.visible = true
+	else:
+		get_tree().change_scene(move_to_level)
+	
 
 func _handle_death():
 	$Music.stop()
