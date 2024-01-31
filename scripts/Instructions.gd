@@ -7,11 +7,11 @@ func _ready():
 		get_tree().paused = true
 		visible = true
 	else:
+		get_tree().paused = false
 		visible = false
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		GameStatistics.instruction_showed = true
-		print("Pausado")
 		visible = false
 		get_tree().paused = false
