@@ -205,7 +205,7 @@ position = Vector2( 372, -1793 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 28, -36 )
+position = Vector2( 225, -1702 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 171, -53 )
@@ -227,6 +227,7 @@ pause_mode = 2
 [node name="Control" parent="HUD" instance=ExtResource( 4 )]
 
 [node name="EndGame" parent="HUD" instance=ExtResource( 16 )]
+pause_mode = 2
 
 [node name="DropZone" type="Area2D" parent="."]
 
