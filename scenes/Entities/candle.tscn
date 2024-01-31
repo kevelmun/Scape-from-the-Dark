@@ -194,7 +194,7 @@ position = Vector2( 0, 22.8571 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CandleSafeArea"]
 self_modulate = Color( 0.976471, 0.258824, 0.239216, 1 )
-position = Vector2( 0, 3.8147e-06 )
+position = Vector2( -1.42857, -45.7142 )
 shape = SubResource( 11 )
 
 [connection signal="body_entered" from="CandleSafeArea" to="." method="_on_CandleSafeArea_body_entered"]

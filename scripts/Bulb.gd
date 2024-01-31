@@ -10,6 +10,12 @@ onready var waitFlicker = $waitFlickerTimer
 
 # Acciones al cargar la escena
 func _ready():
+	for n in 8:
+		if n % 2 == 0: off_light_bulb()
+		else: on_light_bulb()
+		waitFlicker.start(0.2)
+		yield(waitFlicker, "timeout")
+
 	on_light_bulb()
 	flicker.start(7)
 	

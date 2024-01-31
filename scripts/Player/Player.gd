@@ -11,6 +11,8 @@ const MAX_SALTOS = 2
 # Estadisticas del jugador
 var fuel
 var stats: PlayerStats
+var text_balloon_executed = false 
+var can_move = true
 
 # Definir la velocidad inicial
 var velocidad = Vector2()
@@ -27,6 +29,10 @@ var _all_interactions = []
 # Variable de estado de muerte
 var death = false
 var once_dead = false
+# Variable de control de fuego no permitido
+var can_use_fire=true
+
+
 ## Señales
 
 # Indica que el jugador ha perdido (value) puntos de combutible
@@ -42,6 +48,8 @@ signal death_signal()
 ## Obtener referencias a los nodos
 
 onready var animacion = $AnimationPlayer
+onready var animacion_text_balloon = $AnimationPlayer2
+onready var sprite_text_balloon = $Sprite2
 onready var sprite = $Sprite
 onready var light2d = $Light2D
 onready var loseFuelTimer = $LoseFuelTimer
@@ -51,6 +59,17 @@ func _ready():
 	fuel = stats.max_fuel_capability
 
 func _physics_process(delta):
+	if not text_balloon_executed:
+		text_balloon_executed = true
+		can_move = false # Impide el movimiento durante la animación
+		yield(get_tree().create_timer(3), "timeout")
+		sprite_text_balloon.visible = true
+		animacion_text_balloon.play("TextBalloon")
+		return
+	
+	if can_move == false:
+		return	
+
 	# Si ya esta muerto el jugador no se hace nada mas
 	if once_dead: return
 	# Morir	
@@ -58,7 +77,7 @@ func _physics_process(delta):
 		once_dead = true
 		animacion.play("Death")
 		return
-
+	
 	# Movimiento horizontal
 	if Input.is_action_pressed("button_d") and not Input.is_action_pressed("button_s"):
 		sprite.flip_h = false
@@ -116,7 +135,13 @@ func _physics_process(delta):
 		light2d.enabled = false
 		$SoundsEffects.stop()
 
-
+	if fuel <= 0 and animacion.is_playing() and can_use_fire:
+		animacion.stop()  # Esto interrumpe la animación en curso
+		# Aquí puedes también cambiar a una animación de 'idle' o similar si es necesario
+		animacion.play("Idle")	
+		fire_on = false
+		light2d.enabled = false
+		can_use_fire = false	
 	
 
 	# Aplicar gravedad
@@ -189,3 +214,9 @@ func add_fuel(value):
 func _death():
 	if not fire_on:
 		death = true
+
+func _on_AnimationPlayer2_animation_finished(anim_name):
+	if anim_name == "TextBalloon":
+		animacion_text_balloon.play("Idle")
+		sprite_text_balloon.visible = false
+		can_move = true

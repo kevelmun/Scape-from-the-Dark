@@ -56,7 +56,7 @@ a = Vector2( 470, -1952 )
 b = Vector2( 470, 48 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 249.5, 10 )
+extents = Vector2( 100.75, 10 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -89,7 +89,7 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( -7471094, 5, 0, -7274476, 6, 0, -7208960, 6, 0, -6946805, 4, 0, -6619138, 4, 0, -6684651, 7, 0, -6488056, 4, 0, -6094831, 5, 0, -5963774, 7, 0, -5701610, 6, 0, -5636086, 5, 0, -5308416, 6, 0, -5177327, 7, 0, -5046266, 4, 0, -4718574, 5, 0, -4653056, 6, 0, -4390902, 7, 0, -4128746, 5, 0, -3997697, 5, 0, -3801072, 6, 0, -3670009, 7, 0, -3538921, 7, 0, -3407855, 4, 0, -3211265, 5, 0, -3080186, 6, 0, -2818034, 4, 0, -2555881, 4, 0, -2424834, 4, 0, -2293745, 5, 0, -2097146, 7, 0, -2031594, 6, 0, -1703938, 6, 0, -1507310, 7, 0, -1441791, 5, 0, -1245175, 6, 0, -1048553, 5, 0, -917504, 7, 0, -917489, 4, 0, -720873, 6, 0, -655353, 5, 0, -393199, 4, 0, -65538, 1, 0 )
+tile_data = PoolIntArray( -7471094, 5, 0, -7274476, 6, 0, -7208960, 6, 0, -6946805, 4, 0, -6619138, 4, 0, -6684651, 7, 0, -6488056, 4, 0, -6094831, 5, 0, -5963774, 7, 0, -5701610, 6, 0, -5636086, 5, 0, -5308416, 6, 0, -5177327, 7, 0, -5046266, 4, 0, -4718574, 5, 0, -4653056, 6, 0, -4390902, 7, 0, -4128746, 5, 0, -3997697, 5, 0, -3801072, 6, 0, -3670009, 7, 0, -3538921, 7, 0, -3407855, 4, 0, -3211265, 5, 0, -3080186, 6, 0, -2818034, 4, 0, -2555881, 4, 0, -2424834, 4, 0, -2293745, 5, 0, -2097146, 7, 0, -2031594, 6, 0, -1703938, 6, 0, -1507308, 7, 0, -1441791, 5, 0, -1245175, 6, 0, -1048553, 5, 0, -917504, 7, 0, -917489, 4, 0, -720873, 6, 0, -655353, 5, 0, -393199, 4, 0, -65538, 8, 0 )
 
 [node name="Bulb2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 216, -1932 )
@@ -107,6 +107,8 @@ shape = SubResource( 6 )
 
 [node name="Wind" parent="." instance=ExtResource( 13 )]
 position = Vector2( -88, -365 )
+min_time = 10
+max_time = 17
 
 [node name="Candles" type="Node2D" parent="."]
 
@@ -131,7 +133,7 @@ position = Vector2( 197, -321 )
 position = Vector2( 321, -113 )
 
 [node name="Candle6" parent="Candles" instance=ExtResource( 5 )]
-position = Vector2( 338, -393 )
+position = Vector2( 368, -394 )
 duration = 80
 
 [node name="Candle7" parent="Candles" instance=ExtResource( 5 )]
@@ -203,7 +205,7 @@ position = Vector2( 372, -1793 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 47, -54 )
+position = Vector2( 28, -36 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 171, -53 )
@@ -229,7 +231,7 @@ pause_mode = 2
 [node name="DropZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropZone"]
-position = Vector2( 219, 60 )
+position = Vector2( 369, 87 )
 shape = SubResource( 7 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]

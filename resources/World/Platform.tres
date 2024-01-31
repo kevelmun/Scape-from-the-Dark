@@ -1,5 +1,6 @@
-[gd_resource type="TileSet" load_steps=9 format=2]
+[gd_resource type="TileSet" load_steps=11 format=2]
 
+[ext_resource path="res://resources/World/New Version/Initial Plataform.png" type="Texture" id=1]
 [ext_resource path="res://resources/World/initial platform.png" type="Texture" id=2]
 [ext_resource path="res://resources/World/New Version/PlataformSH.png" type="Texture" id=5]
 
@@ -12,7 +13,7 @@ outlines = [ PoolVector2Array( 0, 0, 305, 0, 305, 79, 0, 79 ) ]
 points = PoolVector2Array( 0, 0, 305, 0, 305, 79, 0, 79 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 0, 15.4782, 96.9, 15.4782, 97, 33, 0, 33 )
+points = PoolVector2Array( 0, 18.5086, 97, 16.8341, 97, 33, 0, 33 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 0, 5.00211, 96.673, 5.00211, 97, 21, 0, 21 )
@@ -22,6 +23,9 @@ points = PoolVector2Array( 0, 17.1194, 100, 17.1194, 100, 44, 0, 44 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 0, 9.91953, 96, 9.91953, 96, 46, 0, 46 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 290.576, 100.164, 3.50308, 99.3001, 4.46759, 19.2461, 290.241, 13.7605 )
 
 [resource]
 1/name = "initial platform.png 1"
@@ -130,3 +134,24 @@ points = PoolVector2Array( 0, 9.91953, 96, 9.91953, 96, 46, 0, 46 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
+8/name = "Initial Plataform.png 8"
+8/texture = ExtResource( 1 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 32, 299, 106 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape = SubResource( 11 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
+8/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+8/z_index = 0
