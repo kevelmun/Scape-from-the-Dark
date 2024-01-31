@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 var candels_list = []	#Lista de velas encendidas
 var time_to_blow = 0.0	#Tiempo de espera para apagar la siguiente vela
-var min_time = 7	#Tiempo mínimo de espera hasta apagar una vela
-var max_time = 15		#Tiempo máximo de espera hasta apagar una vela
+export var min_time = 7	#Tiempo mínimo de espera hasta apagar una vela
+export var max_time = 15		#Tiempo máximo de espera hasta apagar una vela
 var rnd_index 			#Indice de la vela a apagar
 var candle
 
