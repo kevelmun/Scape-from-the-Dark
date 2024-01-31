@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="SFTD"
-run/main_scene="res://scenes/UI/MainMenu.tscn"
+run/main_scene="res://scenes/UI/Intro.tscn"
 config/icon="res://icon.png"
 
 [autoload]
