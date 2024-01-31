@@ -217,7 +217,6 @@ func _death():
 
 func _on_AnimationPlayer2_animation_finished(anim_name):
 	if anim_name == "TextBalloon":
-		print("aver")
 		animacion_text_balloon.play("Idle")
 		sprite_text_balloon.visible = false
 		can_move = true

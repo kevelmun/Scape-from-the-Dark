@@ -8,7 +8,7 @@ size = 200
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
+size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -25,8 +25,14 @@ font_data = ExtResource( 1 )
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -40,13 +46,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -187.5
-margin_top = -149.5
+margin_top = -189.0
 margin_right = 187.5
-margin_bottom = 149.5
+margin_bottom = 189.0
+custom_constants/separation = 35
 
 [node name="VBoxPauseMessage" type="VBoxContainer" parent="VBoxContainer"]
 margin_right = 375.0
-margin_bottom = 182.0
+margin_bottom = 189.0
 
 [node name="PauseLabel" type="Label" parent="VBoxContainer/VBoxPauseMessage"]
 margin_right = 375.0
@@ -59,20 +66,41 @@ valign = 1
 [node name="ReturnLabel" type="Label" parent="VBoxContainer/VBoxPauseMessage"]
 margin_top = 163.0
 margin_right = 375.0
-margin_bottom = 182.0
+margin_bottom = 189.0
 custom_fonts/font = SubResource( 2 )
 text = "Press \"Esc\" to resume"
 align = 1
 valign = 1
 
 [node name="VBoxButtons" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 186.0
+margin_top = 224.0
 margin_right = 375.0
-margin_bottom = 304.0
+margin_bottom = 392.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxButtons"]
+margin_right = 375.0
+margin_bottom = 46.0
+
+[node name="ReturnLabel" type="Label" parent="VBoxContainer/VBoxButtons/VBoxContainer"]
+margin_right = 375.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 2 )
+text = "Volume"
+align = 1
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/VBoxButtons/VBoxContainer"]
+margin_top = 30.0
+margin_right = 375.0
+margin_bottom = 46.0
+min_value = -50.0
+max_value = 0.0
+rounded = true
 
 [node name="BackButton" type="Button" parent="VBoxContainer/VBoxButtons"]
+margin_top = 50.0
 margin_right = 375.0
-margin_bottom = 57.0
+margin_bottom = 107.0
 custom_colors/font_color_focus = Color( 0.6, 0.352941, 0.231373, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.6, 0.352941, 0.231373, 1 )
@@ -82,9 +110,9 @@ text = "Main Menu"
 flat = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/VBoxButtons"]
-margin_top = 61.0
+margin_top = 111.0
 margin_right = 375.0
-margin_bottom = 118.0
+margin_bottom = 168.0
 custom_colors/font_color_focus = Color( 0.6, 0.352941, 0.231373, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.6, 0.352941, 0.231373, 1 )
@@ -93,5 +121,6 @@ custom_styles/focus = SubResource( 6 )
 text = "Quit"
 flat = true
 
+[connection signal="value_changed" from="VBoxContainer/VBoxButtons/VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/VBoxButtons/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
