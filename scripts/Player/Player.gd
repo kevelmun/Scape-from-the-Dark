@@ -54,21 +54,25 @@ onready var sprite = $Sprite
 onready var light2d = $Light2D
 onready var loseFuelTimer = $LoseFuelTimer
 
+
+onready var text_ballon_was_showed = !GameStatistics.instruction_showed
 func _ready():
 	stats = PlayerStatitics
 	fuel = stats.max_fuel_capability
 
 func _physics_process(delta):
-	if not text_balloon_executed:
-		text_balloon_executed = true
-		can_move = false # Impide el movimiento durante la animación
-		yield(get_tree().create_timer(3), "timeout")
-		sprite_text_balloon.visible = true
-		animacion_text_balloon.play("TextBalloon")
-		return
 	
-	if can_move == false:
-		return	
+	if estadoxd:
+		if not text_ballon_was_showed:
+			text_balloon_executed = true
+			can_move = false # Impide el movimiento durante la animación
+			yield(get_tree().create_timer(3), "timeout")
+			sprite_text_balloon.visible = true
+			animacion_text_balloon.play("TextBalloon")
+			return
+		
+		if can_move == false:
+			return	
 
 	# Si ya esta muerto el jugador no se hace nada mas
 	if once_dead: return
