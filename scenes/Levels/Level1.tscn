@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
 [ext_resource path="res://resources/Sounds/Fiverr_8bits_elixmc_encendedor.wav" type="AudioStream" id=3]
 [ext_resource path="res://scenes/UI/Instructions.tscn" type="PackedScene" id=4]
@@ -79,7 +79,6 @@ texture = ExtResource( 6 )
 
 [node name="Door" parent="." instance=ExtResource( 7 )]
 position = Vector2( 208, -1852 )
-NEXT_LEVEL = "res://scenes/UI/EndGame.tscn"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0980392, 0.0901961, 0.0901961, 1 )
@@ -205,7 +204,7 @@ position = Vector2( 372, -1793 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 225, -1702 )
+position = Vector2( 28, -36 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 171, -53 )
