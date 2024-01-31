@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://resources/World/Platform.tres" type="TileSet" id=2]
@@ -14,6 +14,36 @@
 [ext_resource path="res://scenes/Entities/wind.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Entities/bulb.tscn" type="PackedScene" id=14]
 
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FadeAnimPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("FadeAnimPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
 [sub_resource type="SegmentShape2D" id=5]
 a = Vector2( -34, -1952 )
 b = Vector2( -34, 49 )
@@ -27,6 +57,19 @@ extents = Vector2( 249.5, 10 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="FadeAnimPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/RESET = SubResource( 8 )
+anims/fade_in = SubResource( 9 )
+
+[node name="ColorRect" type="ColorRect" parent="FadeAnimPlayer"]
+margin_left = -34.0
+margin_top = -1952.0
+margin_right = 471.0
+margin_bottom = -1654.0
+rect_scale = Vector2( 0.992381, 1.03687 )
+color = Color( 0, 0, 0, 0 )
 
 [node name="BackGround" type="Sprite" parent="."]
 position = Vector2( 218, -952 )
@@ -158,7 +201,7 @@ position = Vector2( 369, -1807 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 47, -48 )
+position = Vector2( 67, -1768 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 171, -53 )
@@ -178,6 +221,7 @@ drag_margin_h_enabled = true
 pause_mode = 2
 
 [node name="EndGame" parent="HUD" instance=ExtResource( 7 )]
+pause_mode = 2
 
 [node name="DropZone" type="Area2D" parent="."]
 
@@ -191,6 +235,7 @@ stream = ExtResource( 4 )
 volume_db = -10.0
 autoplay = true
 
+[connection signal="player_reached_door" from="Door" to="." method="_on_Door_player_reached_door"]
 [connection signal="light_bulb_off" from="Bulb2" to="." method="_on_Bulb2_light_bulb_off"]
 [connection signal="light_bulb_on" from="Bulb2" to="." method="_on_Bulb2_light_bulb_on"]
 [connection signal="add_fuel" from="Player" to="HUD" method="_on_Player_add_fuel"]

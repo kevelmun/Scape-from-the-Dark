@@ -58,11 +58,14 @@ func _manage_lose_attempt():
 
 
 func _on_Door_player_reached_door(move_to_level, is_final_screen):
+	get_tree().paused = true
 	fadeAnimPlayer.play("fade_in")
 	yield(fadeAnimPlayer, "animation_finished")
+
 	if is_final_screen:
 		$HUD/EndGame.visible = true
 	else:
+		get_tree().paused = false
 		get_tree().change_scene(move_to_level)
 	
 
