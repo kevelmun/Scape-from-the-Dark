@@ -18,3 +18,9 @@ func _on_BackButton_pressed():
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+func update_master_vol(bus_indx, vol): #-50 min slider
+	AudioServer.set_bus_volume_db(bus_indx,vol)
+
+func _on_HSlider_value_changed(value:float):
+	update_master_vol(0, value)
