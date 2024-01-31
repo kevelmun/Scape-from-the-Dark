@@ -62,8 +62,8 @@ func _ready():
 
 func _physics_process(delta):
 	
-	if estadoxd:
-		if not text_ballon_was_showed:
+	if text_ballon_was_showed:
+		if not text_balloon_executed:
 			text_balloon_executed = true
 			can_move = false # Impide el movimiento durante la animación
 			yield(get_tree().create_timer(3), "timeout")
