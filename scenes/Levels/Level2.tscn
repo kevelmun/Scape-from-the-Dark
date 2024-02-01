@@ -52,8 +52,8 @@ b = Vector2( -34, 49 )
 a = Vector2( 470, -1952 )
 b = Vector2( 470, 48 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 249.5, 10 )
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 100.75, 10 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
@@ -200,7 +200,7 @@ position = Vector2( 369, -1807 )
 duration = 20
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-position = Vector2( 23, -52 )
+position = Vector2( 28, -52 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 171, -53 )
@@ -225,8 +225,8 @@ pause_mode = 2
 [node name="DropZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropZone"]
-position = Vector2( 219, 60 )
-shape = SubResource( 7 )
+position = Vector2( 369, 87 )
+shape = SubResource( 10 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
