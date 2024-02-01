@@ -50,6 +50,7 @@ func _manage_lose_attempt():
 	if player.stats.attemps > 0:
 		# TODO: Agregar codigo al perder el intento
 		get_tree().reload_current_scene()
+		get_tree().paused = false
 	else:
 		#TODO: Agregar codigo para el gameover
 #		get_tree().paused = not get_tree().paused
