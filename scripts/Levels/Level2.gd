@@ -33,6 +33,7 @@ func _on_Player_death_signal():
 	# Verificar si quedan intentos
 	if player.stats.attemps > 0:
 		get_tree().reload_current_scene()
+		get_tree().paused = false
 	else:
 		$HUD/GameOver.visible = true 
 		print("Valiste")
